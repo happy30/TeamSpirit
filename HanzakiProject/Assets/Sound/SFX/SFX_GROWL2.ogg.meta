@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 8d524bc613569a9409351cfb6f45276f
+timeCreated: 1478011872
+=======
+<<<<<<< HEAD
+guid: 6e71851111513d7428e925f10f3dd9c7
+timeCreated: 1478011419
+=======
+guid: 95b86ac86fbe7d24ba3ce82f2220a8fa
+timeCreated: 1478010837
+>>>>>>> origin/master
+>>>>>>> 9d342df76154a39fa18ddb47351de08e0507f0e0
+licenseType: Free
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

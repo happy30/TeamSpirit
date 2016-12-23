@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: b7b71f6dd1a4f6244861e187717560ef
+timeCreated: 1474966037
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: fence pole horizontal
+    100004: fence pole vertical
+    100006: fence pole vertical 10
+    100008: fence pole vertical 2
+    100010: fence pole vertical 3
+    100012: fence pole vertical 4
+    100014: fence pole vertical 5
+    100016: fence pole vertical 6
+    100018: fence pole vertical 7
+    100020: fence pole vertical 8
+    100022: fence pole vertical 9
+    400000: //RootNode
+    400002: fence pole horizontal
+    400004: fence pole vertical
+    400006: fence pole vertical 10
+    400008: fence pole vertical 2
+    400010: fence pole vertical 3
+    400012: fence pole vertical 4
+    400014: fence pole vertical 5
+    400016: fence pole vertical 6
+    400018: fence pole vertical 7
+    400020: fence pole vertical 8
+    400022: fence pole vertical 9
+    2300000: //RootNode
+    2300002: fence pole horizontal
+    2300004: fence pole vertical
+    2300006: fence pole vertical 10
+    2300008: fence pole vertical 2
+    2300010: fence pole vertical 3
+    2300012: fence pole vertical 4
+    2300014: fence pole vertical 5
+    2300016: fence pole vertical 6
+    2300018: fence pole vertical 7
+    2300020: fence pole vertical 8
+    2300022: fence pole vertical 9
+    3300000: //RootNode
+    3300002: fence pole horizontal
+    3300004: fence pole vertical
+    3300006: fence pole vertical 10
+    3300008: fence pole vertical 2
+    3300010: fence pole vertical 3
+    3300012: fence pole vertical 4
+    3300014: fence pole vertical 5
+    3300016: fence pole vertical 6
+    3300018: fence pole vertical 7
+    3300020: fence pole vertical 8
+    3300022: fence pole vertical 9
+    4300000: fence
+    4300002: fence pole horizontal
+    4300004: fence pole vertical
+    4300006: fence pole vertical 2
+    4300008: fence pole vertical 3
+    4300010: fence pole vertical 6
+    4300012: fence pole vertical 4
+    4300014: fence pole vertical 7
+    4300016: fence pole vertical 8
+    4300018: fence pole vertical 5
+    4300020: fence pole vertical 9
+    4300022: fence pole vertical 10
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XmlManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ShurikenCount>5</ShurikenCount>
+  <SavePoints>5</SavePoints>
+  <PlayerPosition>
+    <x>0.58</x>
+    <y>1</y>
+    <z>7.96</z>
+  </PlayerPosition>
+  <QuestProgression>5</QuestProgression>
+  <GrapplingHook>true</GrapplingHook>
+  <SmokeBomb>true</SmokeBomb>
+  <Shuriken>true</Shuriken>
+  <Katarna>true</Katarna>
+  <DisplayHotkeys></DisplayHotkeys>
+</XmlManager>

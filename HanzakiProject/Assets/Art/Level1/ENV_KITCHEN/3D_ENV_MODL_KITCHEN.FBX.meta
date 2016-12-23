@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: 0fbbe1fa1e51d874d9f19e6aee2f1c7b
+timeCreated: 1478174766
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BigStone
+    100004: Deksel
+    100006: Deksel2
+    100008: Plate
+    100010: Pot
+    100012: SmallStone
+    100014: SmallStone001
+    100016: SmallStone002
+    100018: SmallStone003
+    100020: SmallStone004
+    100022: SmallStone005
+    100024: SmallStone006
+    100026: SmallStone007
+    100028: SmallStone008
+    100030: SmallStone009
+    100032: SmallStone010
+    100034: SmallStone011
+    100036: SmallStone012
+    100038: SmallStone013
+    100040: SmallStone014
+    100042: SmallStone015
+    100044: SmallStone016
+    100046: Zandbed
+    400000: //RootNode
+    400002: BigStone
+    400004: Deksel
+    400006: Deksel2
+    400008: Plate
+    400010: Pot
+    400012: SmallStone
+    400014: SmallStone001
+    400016: SmallStone002
+    400018: SmallStone003
+    400020: SmallStone004
+    400022: SmallStone005
+    400024: SmallStone006
+    400026: SmallStone007
+    400028: SmallStone008
+    400030: SmallStone009
+    400032: SmallStone010
+    400034: SmallStone011
+    400036: SmallStone012
+    400038: SmallStone013
+    400040: SmallStone014
+    400042: SmallStone015
+    400044: SmallStone016
+    400046: Zandbed
+    2300000: BigStone
+    2300002: Deksel
+    2300004: Deksel2
+    2300006: Plate
+    2300008: Pot
+    2300010: SmallStone
+    2300012: SmallStone001
+    2300014: SmallStone002
+    2300016: SmallStone003
+    2300018: SmallStone004
+    2300020: SmallStone005
+    2300022: SmallStone006
+    2300024: SmallStone007
+    2300026: SmallStone008
+    2300028: SmallStone009
+    2300030: SmallStone010
+    2300032: SmallStone011
+    2300034: SmallStone012
+    2300036: SmallStone013
+    2300038: SmallStone014
+    2300040: SmallStone015
+    2300042: SmallStone016
+    2300044: Zandbed
+    3300000: BigStone
+    3300002: Deksel
+    3300004: Deksel2
+    3300006: Plate
+    3300008: Pot
+    3300010: SmallStone
+    3300012: SmallStone001
+    3300014: SmallStone002
+    3300016: SmallStone003
+    3300018: SmallStone004
+    3300020: SmallStone005
+    3300022: SmallStone006
+    3300024: SmallStone007
+    3300026: SmallStone008
+    3300028: SmallStone009
+    3300030: SmallStone010
+    3300032: SmallStone011
+    3300034: SmallStone012
+    3300036: SmallStone013
+    3300038: SmallStone014
+    3300040: SmallStone015
+    3300042: SmallStone016
+    3300044: Zandbed
+    4300000: Zandbed
+    4300002: Plate
+    4300004: SmallStone
+    4300006: BigStone
+    4300008: SmallStone001
+    4300010: SmallStone002
+    4300012: SmallStone003
+    4300014: SmallStone004
+    4300016: SmallStone005
+    4300018: SmallStone006
+    4300020: SmallStone007
+    4300022: SmallStone008
+    4300024: SmallStone009
+    4300026: SmallStone010
+    4300028: SmallStone011
+    4300030: SmallStone012
+    4300032: SmallStone013
+    4300034: SmallStone014
+    4300036: SmallStone015
+    4300038: SmallStone016
+    4300040: Pot
+    4300042: Deksel
+    4300044: Deksel2
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

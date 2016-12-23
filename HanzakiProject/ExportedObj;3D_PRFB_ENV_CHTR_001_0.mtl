@@ -1,0 +1,22 @@
+
+newmtl Optimized Bark Material
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/Prefabs/Shared/Trees/3D_PRFB_ENV_CHTR_001_Textures/diffuse.png
+
+
+
+newmtl Optimized Leaf Material
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/Prefabs/Shared/Trees/3D_PRFB_ENV_CHTR_001_Textures/diffuse.png
+
+
