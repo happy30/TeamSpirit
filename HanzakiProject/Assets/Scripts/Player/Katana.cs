@@ -21,12 +21,16 @@ public class Katana : MonoBehaviour
     public float dashPower;
     public float coolDown;
 
+    AudioSource sound;
+    public AudioClip swing;
+
     public Animator anim;
 
     public UIManager ui;
 
     void Awake()
     {
+        sound = GetComponent<AudioSource>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerModel = GameObject.Find("PlayerModel").transform;
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -58,7 +62,7 @@ public class Katana : MonoBehaviour
 
     public void Slash(int attackMultiplier)
     {
-        print("slash!");
+        sound.PlayOneShot(swing);
         playerController.anim.SetBool("Attack", false);
         RaycastHit hit;
         if(Physics.Raycast(new Vector3(playerModel.position.x, playerModel.position.y +0.5f, playerModel.position.z), playerModel.forward, out hit, 3))
