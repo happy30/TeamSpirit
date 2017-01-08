@@ -109,6 +109,11 @@ public class PlayerController : MonoBehaviour
             //CheckForDash2();
             CheckForDash3();
         }
+        else
+        {
+            anim.SetBool("Running", false);
+            anim.SetBool("Walking", false);
+        }
         
         CheckForWall();
         CheckForSlipperyTile();
