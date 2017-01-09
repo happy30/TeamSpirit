@@ -94,6 +94,11 @@ public class KartController : MonoBehaviour
         if(Physics.Raycast(transform.position,-transform.up,out hit, rayDis))
         {
             CheckFloor(hit);
+            _rb.useGravity = false;
+        }
+        else
+        {
+            _rb.useGravity = true;
         }
 
         // Front Back
