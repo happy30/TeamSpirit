@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     enum States {Idle, Patrol, Chasing, Attacking}
     States enemyStates;
+    Rigidbody _rb;
 
     public List<Transform> wayPoints = new List<Transform>();
     public float walkSpeed;
@@ -40,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Awake()
     {
+        _rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyStates = States.Patrol;
         anim = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -122,6 +125,12 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public void Knockback()
+    {
+        print("knockback!!!!!!");
+        _rb.velocity = new Vector3(transform.forward.x * -10f, 20f, 0);
+    }
+
     void Chase()
     {
         if (playerDistance > outOfRange)
@@ -167,6 +176,7 @@ public class EnemyMovement : MonoBehaviour
     public void GetHit(int damageGet)
     {
         health -= damageGet;
+        Knockback();
         if (health <= 0)
         {
             anim.SetBool("Death", true);

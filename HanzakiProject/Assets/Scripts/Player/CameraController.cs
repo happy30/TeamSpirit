@@ -157,12 +157,15 @@ public class CameraController : MonoBehaviour
                 if(player.GetComponent<PlayerController>().levelType == PlayerController.LevelType.SS)
                 {
                     cameraPos = new Vector3(
-                    player.transform.position.x + (player.transform.forward.x * -distance),
-                    player.transform.position.y + cameraOffsetY,
-                    player.transform.position.z + (player.transform.forward.z * -distance));
+                        player.transform.position.x + (player.transform.forward.x * -distance),
+                        player.transform.position.y + cameraOffsetY,
+                        player.transform.position.z + (player.transform.forward.z * -distance));
 
                     transform.position = Vector3.Slerp(transform.position, cameraPos + additionalCameraOffset, followTime * Time.deltaTime);
-                    transform.eulerAngles = new Vector3(Mathf.LerpAngle(transform.eulerAngles.x, cameraRot.x, followTime * Time.deltaTime), Mathf.LerpAngle(transform.eulerAngles.y, cameraRot.y, followTime * Time.deltaTime), Mathf.LerpAngle(transform.eulerAngles.z, cameraRot.z, followTime * Time.deltaTime));
+                    transform.eulerAngles = new Vector3(
+                        Mathf.LerpAngle(transform.eulerAngles.x, cameraRot.x, followTime * Time.deltaTime), 
+                        Mathf.LerpAngle(transform.eulerAngles.y, cameraRot.y, followTime * Time.deltaTime), 
+                        Mathf.LerpAngle(transform.eulerAngles.z, cameraRot.z, followTime * Time.deltaTime));
                 }
                 else
                 {
@@ -182,7 +185,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x + cameraOffsetX, player.transform.position.y + 20, player.transform.position.z), followTime * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x + cameraOffsetX, player.transform.position.y + 35, player.transform.position.z), followTime * Time.deltaTime);
             //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(80, 0, 0), followTime * Time.deltaTime);
             transform.eulerAngles = new Vector3(Mathf.LerpAngle(transform.eulerAngles.x, 80, followTime * Time.deltaTime), Mathf.LerpAngle(transform.eulerAngles.y, 0, followTime * Time.deltaTime), Mathf.LerpAngle(transform.eulerAngles.z, 0, followTime * Time.deltaTime));
            

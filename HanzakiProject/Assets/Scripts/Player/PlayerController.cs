@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 walkTowards;
     public Vector3 lookPos;
+    Vector3 moveDirection;
+    bool hasInput;
 
     public bool onSlipperyTile;
     public bool onSlipperyTileNearWall;
@@ -101,13 +103,22 @@ public class PlayerController : MonoBehaviour
 	
 	void Update ()
     {
-        if(!Camera.main.GetComponent<CameraController>().inCutscene)
+        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile)
         {
             SetMovement();
             Move();
             //CheckForDash();
             //CheckForDash2();
             CheckForDash3();
+        }
+        else if(Camera.main.GetComponent<CameraController>().inCutscene)
+        {
+            anim.SetBool("Running", false);
+            anim.SetBool("Walking", false);
+        }
+        else if(onSlipperyTile)
+        {
+            SlipperyTileMovement();
         }
         
         CheckForWall();
@@ -245,323 +256,60 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
-        /*
-        if(dashCooldown <= 0)
-        {
-            tapTimer += Time.deltaTime;
-            if (hasTapped)
-            {
-                
-                if (horizontal > 0.8f || vertical > 0.8f || horizontal < -0.8f || vertical < -0.8f)
-                {
-                    if (angle > lastDirection - 30f && angle < lastDirection + 30f)
-                    {
-                        if (tapTimer < 0.4f)
-                        {
-                            Dash(dashSpeed);
-                            dashCooldown = 2f;
-                            ui.UseSkill(4);
-                            hasTapped = false;
-                            tapTimer = 0;
-                        }
-                        else
-                        {
-                            tapTimer = 0;
-                            hasTapped = false;
-                        }
-
-                    }
-                    else
-                    {
-                        hasTapped = false;
-                        tapTimer = 0;
-                    }
-
-                }
-            }
-            else
-            {
-                if (horizontal > 0.8f || vertical > 0.8f || horizontal < -0.8f || vertical < -0.8f)
-                {
-                    lastDirection = angle;
-                    print(lastDirection);
-                    isMoving = true;
- 
-                }
-                else if(isMoving)
-                {
-                    hasTapped = true;
-                    tapTimer = 0;
-                }
-            }
-        }
-        if (dashCooldown > 0)
-        {
-            dashCooldown -= Time.deltaTime;
-        }
-        else
-        {
-            dashCooldown = 0;
-        }
-
-    }
-
-    void CheckForDash2()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        if (Time.time > lastTapFwdTime + dblTapFwdTime)
-        {
-            dblTapFwdReady = false;
-        }
-
-        if (dashCooldown <= 0)
-        {
-            if (horizontal > 0)
-            {
-                if (!walkingRight)
-                {
-                    walkingRight = true;
-                    lastTapFwdTime = Time.time;
-                    if (dblTapFwdReady)
-                    {
-                        // Stop the other animations if necessary.
-                        Dash(dashSpeed);
-                        dashCooldown = 2f;
-                        ui.UseSkill(4);
-                    }
-                    else
-                    {
-                        dblTapFwdReady = true;
-                    }
-                }
-            }
-            if (horizontal < 0)
-            {
-                if (!walkingLeft)
-                {
-                    walkingLeft = true;
-                    lastTapFwdTime = Time.time;
-                    if (dblTapFwdReady)
-                    {
-                        // Stop the other animations if necessary.
-                        Dash(dashSpeed);
-                        dashCooldown = 2f;
-                        ui.UseSkill(4);
-                    }
-                    else
-                    {
-                        dblTapFwdReady = true;
-                    }
-                }
-            }
-
-            if (vertical > 0)
-            {
-                if (!walkingUp)
-                {
-                    walkingUp = true;
-                    lastTapFwdTime = Time.time;
-                    if (dblTapFwdReady)
-                    {
-                        // Stop the other animations if necessary.
-                        Dash(dashSpeed);
-                        dashCooldown = 2f;
-                        ui.UseSkill(4);
-                    }
-                    else
-                    {
-                        dblTapFwdReady = true;
-                    }
-                }
-            }
-            if (vertical < 0)
-            {
-                if (!walkingUp)
-                {
-                    walkingDown = true;
-                    lastTapFwdTime = Time.time;
-                    if (dblTapFwdReady)
-                    {
-                        // Stop the other animations if necessary.
-                        
-                    }
-                    else
-                    {
-                        dblTapFwdReady = true;
-                    }
-                }
-            }
-
-
-            if (horizontal == 0)
-            {
-            	walkingRight = false;
-                walkingLeft = false;
-            	// ^^ Idle animation Here
-            }
-
-            if (vertical == 0)
-            {
-                walkingUp = false;
-                walkingDown = false;
-                // ^^ Idle animation Here
-            }
-
-            if (walkingRight)
-            {
-            	// ^^ walk animation Here
-            }
-        }	
-        else
-        {
-            	print ("lunging!");
-        }
-        if (dashCooldown > 0)
-        {
-            dashCooldown -= Time.deltaTime;
-        }
-        else
-        {
-            dashCooldown = 0;
-        }
-    }
-
-
- 
-   void CheckForDash()
-   {
-       if(levelType == LevelType.TD)
-       {
-           if (Input.GetKeyDown(KeyCode.UpArrow))
-           {
-               CheckForDoubleTap(KeyCode.UpArrow);
-               lastKey = KeyCode.UpArrow;
-           }
-
-           if (Input.GetKeyDown(KeyCode.DownArrow))
-           {
-               CheckForDoubleTap(KeyCode.DownArrow);
-               lastKey = KeyCode.DownArrow;
-           }
-       }
-
-       if (Input.GetKeyDown(KeyCode.RightArrow))
-       {
-           CheckForDoubleTap(KeyCode.RightArrow);
-           lastKey = KeyCode.RightArrow;
-       }
-
-       if (Input.GetKeyDown(KeyCode.LeftArrow))
-       {
-           CheckForDoubleTap(KeyCode.LeftArrow);
-           lastKey = KeyCode.LeftArrow;
-       }
-
-       if (doubleTapTime < 0)
-       {
-           doubleTapTime = 0;
-           buttonCount = 0;
-       }
-       else
-       {
-           doubleTapTime -= Time.deltaTime;
-       }
-
-       if(dashCooldown > 0)
-       {
-           dashCooldown -= Time.deltaTime;
-       }
-       else
-       {
-           dashCooldown = 0;
-       }
-   }
-
-
-
-
-
-    void CheckForDoubleTap(KeyCode key)
-{
-    Debug.Log(key);
-    if(buttonCount == 1)
-    {
-        if(lastKey == key)
-        {
-            Debug.Log("dash!!");
-            if(dashCooldown <= 0)
-            {
-                Dash(dashSpeed);
-                dashCooldown = 2f;
-                ui.UseSkill(4);
-            }
-            buttonCount = 0;
-        }
-        else
-        {
-            buttonCount = 0;
-        }
-    }
-    else
-    {
-        buttonCount++;
-        doubleTapTime = 0.5f;
-    }
-}
-*/
-
     void CheckForSlipperyTile()
     {
-        if (IsTouching(20) != null)
+        if (IsTouching(5) != null)
         {
             if (IsTouching(20).tag == "Slippery")
             {
                 onSlipperyTile = true;
             }
-            else
-            {
-                if(IsTouching(2) != null)
-                {
-                    if (IsTouching(2).tag == "Ground")
-                    {
-                        onSlipperyTile = false;
-                    }
-                } 
-            }
         }
-        if(onSlipperyTile && !onSlipperyTileNearWall)
+    }
+
+    void SlipperyTileMovement()
+    {
+        anim.SetBool("Walking", false);
+        anim.SetBool("Runing", false);
+
+
+        if(Input.GetAxisRaw("Horizontal") > 0 && !hasInput)
         {
-            if (Mathf.Round(playerModel.transform.eulerAngles.y) == 90)
-            {
-                xMovement =  stats.runSpeed * 1.5f * Time.deltaTime;
-            }
-            else if (Mathf.Round(playerModel.transform.eulerAngles.y) == 270)
-            {
-                xMovement = -stats.runSpeed * 1.5f * Time.deltaTime;
-            }
-            else if (Mathf.Round(playerModel.transform.eulerAngles.y) == 0)
-            {
-                zMovement = stats.runSpeed * 1.5f * Time.deltaTime;
-            }
-            else if (Mathf.Round(playerModel.transform.eulerAngles.y) == 180)
-            {
-                zMovement = -stats.runSpeed * 1.5f * Time.deltaTime;
-            }
+            moveDirection = (transform.right * stats.runSpeed);
+            playerModel.transform.eulerAngles = new Vector3(0, 90, 0);
+            hasInput = true;
         }
-        if(onSlipperyTile && onSlipperyTileNearWall)
+        if (Input.GetAxisRaw("Horizontal") < 0 && !hasInput)
         {
-            onSlipperyTile = false;
-            if(xMovement != 0 || zMovement != 0)
-            {
-                onSlipperyTile = true;
-                onSlipperyTileNearWall = false;
-            }
+            moveDirection = (transform.right * -stats.runSpeed);
+            playerModel.transform.eulerAngles = new Vector3(0, 270, 0);
+            hasInput = true;
+        }
+        if (Input.GetAxisRaw("Vertical") > 0 && !hasInput)
+        {
+            moveDirection = (transform.forward * stats.runSpeed);
+            playerModel.transform.eulerAngles = new Vector3(0, 0, 0);
+            hasInput = true;
+        }
+        if (Input.GetAxisRaw("Vertical") < 0 && !hasInput)
+        {
+            moveDirection = (transform.forward * -stats.runSpeed);
+            playerModel.transform.eulerAngles = new Vector3(0, 180, 0);
+            hasInput = true;
         }
 
+
+
+        if (Physics.Raycast(playerModel.transform.position, playerModel.transform.forward, 1.5f))
+        {
+            moveDirection = new Vector3(0, 0, 0);
+            hasInput = false;
+        }
+
+        transform.Translate(moveDirection * 1.3f * Time.deltaTime);
+
     }
+
 
     public void Dash(float distance)
     {
@@ -676,26 +424,28 @@ public class PlayerController : MonoBehaviour
     //Make the player stop moving if it's humping a wall
     void CheckForWall()
     {
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y - modelHeight, transform.position.z), -transform.right);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), -transform.right);
 
         RaycastHit hit;
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y - modelHeight, transform.position.z), -transform.right, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), -transform.right, out hit, modelWidth))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), -transform.right, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), -transform.right, out hit, modelWidth))
         {
             if (xMovement < 0)
             {
+                print("hitsomething");
                 xMovement = 0;
             }
         }
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y - modelHeight, transform.position.z), transform.right, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), transform.right, out hit, modelWidth))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), transform.right, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), transform.right, out hit, modelWidth))
         {
             if (xMovement > 0)
             {
+                print("hitsomething");
                 xMovement = 0;
             }
         }
         if(levelType == LevelType.TD)
         {
-            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y - modelHeight, transform.position.z), transform.forward, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), transform.forward, out hit, modelWidth))
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), transform.forward, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), transform.forward, out hit, modelWidth))
             {
                 if (zMovement > 0)
                 {

@@ -21,12 +21,16 @@ public class Katana : MonoBehaviour
     public float dashPower;
     public float coolDown;
 
+    AudioSource sound;
+    public AudioClip swing;
+
     public Animator anim;
 
     public UIManager ui;
 
     void Awake()
     {
+        sound = GetComponent<AudioSource>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerModel = GameObject.Find("PlayerModel").transform;
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -34,6 +38,7 @@ public class Katana : MonoBehaviour
 
     void Update()
     {
+        Debug.DrawRay(new Vector3(playerModel.position.x, playerModel.position.y +0.5f, playerModel.position.z), playerModel.forward);
         if(!ui.isPaused)
         {
             if (Input.GetKeyDown(InputManager.Slash) && !Camera.main.GetComponent<CameraController>().inCutscene && coolDown <= 0 || Input.GetKeyDown(InputManager.JSlash) && !Camera.main.GetComponent<CameraController>().inCutscene && coolDown <= 0)
@@ -57,10 +62,12 @@ public class Katana : MonoBehaviour
 
     public void Slash(int attackMultiplier)
     {
+        sound.PlayOneShot(swing);
         playerController.anim.SetBool("Attack", false);
         RaycastHit hit;
-        if(Physics.Raycast(playerModel.position, playerModel.forward, out hit, 2))
+        if(Physics.Raycast(new Vector3(playerModel.position.x, playerModel.position.y +0.5f, playerModel.position.z), playerModel.forward, out hit, 3))
         {
+            print(hit.transform.tag);
             if(hit.collider.tag == "Enemy")
             {
                 SlashedObject = hit.collider.gameObject;
@@ -76,6 +83,7 @@ public class Katana : MonoBehaviour
                 }
                 */
             }
+
             else if (hit.collider.tag == "Destructible" && swordType == SwordType.Katana)
             {
                 hit.collider.gameObject.GetComponent<DestructibleScript>().DestroyObject();
