@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HanzakiProject/Assets/Art/Level1/ENV_PAPER/Materials/Texture paper 10.mat.meta
+guid: be741bfd449aeb54c9ab9c6a2191c5bd
+timeCreated: 1482698663
+=======
 guid: 72e4c08a326114f49ba3551010f04a27
 timeCreated: 1483828308
+>>>>>>> 7167e97a379f2d2467a7b05cbc5b342e7365621b:HanzakiProject/Assets/Art/Level1/ENV_PAPER/Materials/Texture paper 10.mat.meta
 licenseType: Free
 NativeFormatImporter:
   userData: 
