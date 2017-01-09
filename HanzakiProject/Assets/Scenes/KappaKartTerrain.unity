@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1531978320}
-  m_IndirectSpecularColor: {r: 0.4430062, g: 0.492195, b: 0.571924, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -16917,6 +16917,36 @@ Prefab:
       propertyPath: m_Name
       value: Player2Kart
       objectReference: {fileID: 0}
+    - target: {fileID: 23307985894793538, guid: 0eeccce63123aa74fb4525b9d4464bbb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7a9a530bea3093479583c822e2a518d, type: 2}
+    - target: {fileID: 23811633550497038, guid: 0eeccce63123aa74fb4525b9d4464bbb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d8ad229d388c1545846c1f41c4b4cfa, type: 2}
+    - target: {fileID: 23756656201064964, guid: 0eeccce63123aa74fb4525b9d4464bbb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 123f216f3b896ff4bbee89bdbf839b34, type: 2}
+    - target: {fileID: 23231829157112314, guid: 0eeccce63123aa74fb4525b9d4464bbb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17fa9c40dce27be4da8f91f593c33c2b, type: 2}
+    - target: {fileID: 23051357253518306, guid: 0eeccce63123aa74fb4525b9d4464bbb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17fa9c40dce27be4da8f91f593c33c2b, type: 2}
+    - target: {fileID: 23694287096626736, guid: 0eeccce63123aa74fb4525b9d4464bbb,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02d827e59cb69704db5d86ac18bc9a6b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0eeccce63123aa74fb4525b9d4464bbb, type: 2}
   m_IsPrefabParent: 0
@@ -19286,7 +19316,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 496796064}
-  m_LocalRotation: {x: 0.3688722, y: 0.64536756, z: -0.28100273, w: 0.6070185}
+  m_LocalRotation: {x: 0.36887223, y: 0.6453676, z: -0.28100276, w: 0.60701853}
   m_LocalPosition: {x: -338.7749, y: -8.444131, z: -27.976166}
   m_LocalScale: {x: 8.529593, y: 8.529594, z: 8.529594}
   m_Children: []
@@ -31287,7 +31317,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 789939371}
-  m_LocalRotation: {x: -0.6091212, y: 0.37193576, z: -0.25141692, w: 0.65377736}
+  m_LocalRotation: {x: -0.60912114, y: 0.37193573, z: -0.2514169, w: 0.6537773}
   m_LocalPosition: {x: -87.17, y: 5.55, z: 8.24}
   m_LocalScale: {x: 0.12885486, y: 0.1288549, z: 0.12885493}
   m_Children: []
@@ -44848,6 +44878,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 23608762849753884, guid: d7fc01bbbda79c74e9d38ba28e7d677b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aadb99acae71e5745aca561f414c3a51, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7fc01bbbda79c74e9d38ba28e7d677b, type: 2}
   m_IsPrefabParent: 0
@@ -50936,7 +50971,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1301424476}
-  m_LocalRotation: {x: -0.04640546, y: 0.5286914, z: 0.6447655, w: 0.5500996}
+  m_LocalRotation: {x: -0.046405457, y: 0.52869135, z: 0.64476544, w: 0.55009955}
   m_LocalPosition: {x: -362.84293, y: -8.167861, z: -98.17157}
   m_LocalScale: {x: 2.141209, y: 2.141209, z: 2.141209}
   m_Children: []
@@ -71510,6 +71545,11 @@ Prefab:
       propertyPath: m_Name
       value: Brug (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 23608762849753884, guid: d7fc01bbbda79c74e9d38ba28e7d677b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aadb99acae71e5745aca561f414c3a51, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7fc01bbbda79c74e9d38ba28e7d677b, type: 2}
   m_IsPrefabParent: 0
@@ -78091,6 +78131,36 @@ Prefab:
       propertyPath: m_Name
       value: Player1Kart
       objectReference: {fileID: 0}
+    - target: {fileID: 23690583213239690, guid: f00e5785406c72b459cdc46ffbd6b2a7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ce8f5dbe7da1b82448be699dc07ce350, type: 2}
+    - target: {fileID: 23225487945120570, guid: f00e5785406c72b459cdc46ffbd6b2a7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d8ad229d388c1545846c1f41c4b4cfa, type: 2}
+    - target: {fileID: 23969670391204926, guid: f00e5785406c72b459cdc46ffbd6b2a7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 123f216f3b896ff4bbee89bdbf839b34, type: 2}
+    - target: {fileID: 23387055583046096, guid: f00e5785406c72b459cdc46ffbd6b2a7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17fa9c40dce27be4da8f91f593c33c2b, type: 2}
+    - target: {fileID: 23915493898780758, guid: f00e5785406c72b459cdc46ffbd6b2a7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17fa9c40dce27be4da8f91f593c33c2b, type: 2}
+    - target: {fileID: 23668695707668276, guid: f00e5785406c72b459cdc46ffbd6b2a7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02d827e59cb69704db5d86ac18bc9a6b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f00e5785406c72b459cdc46ffbd6b2a7, type: 2}
   m_IsPrefabParent: 0
