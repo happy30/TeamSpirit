@@ -488,7 +488,7 @@ MonoBehaviour:
   nextCheckPoint: 0
   playerPos: 1
   speed: 0
-  normalSpeed: 40
+  normalSpeed: 30
   boostSpeed: 20
   backSpeed: 0
   rotateSpeed: 5

@@ -79,7 +79,7 @@ public class KartController : MonoBehaviour
                 {
                     float upwardSpeed = _rb.velocity.y;
                     float lift = hoverError * hoverForce - upwardSpeed * hoverDamp;
-                    _rb.AddForce(lift * Vector3.up);
+                   // _rb.AddForce(lift * Vector3.up);
                 }
             }
     }
