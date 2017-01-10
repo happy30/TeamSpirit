@@ -13,13 +13,16 @@ public class Shuriken : MonoBehaviour {
     public GameObject shurikenObject;
     GameObject spawnedShurikenObject;
     public UIManager ui;
-
+    public Animator anim;
+    public Transform playerModel;
+    public PlayerController player;
 
 
     void Awake()
     {
         stats = GameObject.Find("GameManager").GetComponent<StatsManager>();
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
+        player = GetComponent<PlayerController>();
     }
 
 	
@@ -30,8 +33,9 @@ public class Shuriken : MonoBehaviour {
         {
             if (Input.GetKey(InputManager.Shuriken) && stats.shurikenUnlocked && stats.shurikenAmount > 0 && !reloading || Input.GetKey(InputManager.JShuriken) && stats.shurikenUnlocked && stats.shurikenAmount > 0 && !reloading)
             {
-                //Animatorplay blabla
-                ThrowShuriken(attackPower);
+                player.StopMovement(0.4f);
+                anim.SetBool("Shuriken", true);
+                Invoke("Delay", 0.1f);
                 ui.UseSkill(1);
                 reloading = true;
             }
@@ -48,11 +52,16 @@ public class Shuriken : MonoBehaviour {
 	    
 	}
 
+    public void Delay()
+    {
+        ThrowShuriken(attackPower);
+    }
 
     public void ThrowShuriken(int attackPower)
     {
-        Destroy(spawnedShurikenObject = (GameObject)Instantiate(shurikenObject, transform.position, Quaternion.identity), 3);
+        Destroy(spawnedShurikenObject = (GameObject)Instantiate(shurikenObject, new Vector3(transform.position.x, transform.position.y +0.9f, transform.position.z) + playerModel.transform.forward * 1, Quaternion.identity), 3);
         spawnedShurikenObject.GetComponent<ShurikenObject>().attackPower = attackPower;
-        stats.shurikenAmount--;	
+        stats.shurikenAmount--;
+        anim.SetBool("Shuriken", false);
     }
 }
