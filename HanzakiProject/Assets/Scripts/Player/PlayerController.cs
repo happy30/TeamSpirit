@@ -51,6 +51,9 @@ public class PlayerController : MonoBehaviour
     public Material playerMat;
 
     public Vector3 playerRotation;
+    public float movementTimer;
+    public float movementTime;
+    public bool canMove;
 
     //Combat
     public bool invulnerable;
@@ -99,11 +102,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ChangeControlsDependingOnLevelType();
+        canMove = true;
     }
 	
 	void Update ()
     {
-        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile)
+        CanMove();
+        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile && canMove)
         {
             SetMovement();
             Move();
@@ -136,6 +141,21 @@ public class PlayerController : MonoBehaviour
         else if (levelType == LevelType.TD)
         {
             InputManager.Jump = InputManager.JumpTD;
+        }
+    }
+
+
+    void CanMove()
+    {
+        if(!canMove)
+        {
+            movementTimer += Time.deltaTime;
+            if(movementTimer > movementTime)
+            {
+                canMove = true;
+                movementTimer = 0;
+                movementTime = 0;
+            }
         }
     }
 
@@ -589,6 +609,14 @@ public class PlayerController : MonoBehaviour
         return false;
                 
     }
+
+
+    public void StopMovement (float time)
+    {
+        canMove = false;
+        movementTime = time;
+    }
+
 
     void OnCollisionEnter(Collision col)
     {
