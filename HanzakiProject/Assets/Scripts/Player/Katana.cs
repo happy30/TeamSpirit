@@ -45,7 +45,7 @@ public class Katana : MonoBehaviour
             {
                 //Slash(attackPower);
                 playerController.anim.SetBool("Attack", true);
-                playerController.StopMovement(1.25f);
+                playerController.StopMovement(1f);
                 ui.UseSkill(0);
                 coolDown = 1.5f;
             }

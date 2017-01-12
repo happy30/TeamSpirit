@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 2D_ENV_MAT_STONE
-  m_Shader: {fileID: 4800000, guid: 054a31a99d11e49d110086ba44295342, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: ENV_BROKENFUTON
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -48,19 +48,7 @@ Material:
     - first:
         name: _MainTex
       second:
-<<<<<<< HEAD
-        m_Texture: {fileID: 2800000, guid: 92f5abedf3b47914da939f6f17272840, type: 3}
-=======
-<<<<<<< HEAD
-        m_Texture: {fileID: 2800000, guid: 9e9eb89897ae81e4c9c73f09689fcd18, type: 3}
-=======
-<<<<<<< HEAD
-        m_Texture: {fileID: 2800000, guid: b53e9d9363ba4d64cb60063b35ab66f0, type: 3}
-=======
-        m_Texture: {fileID: 2800000, guid: f7b4d25348751f4418564e629fe47b26, type: 3}
->>>>>>> 7167e97a379f2d2467a7b05cbc5b342e7365621b
->>>>>>> 6ab6c8d2b3ba7f7eff5d47a6367cd68a79c815d6
->>>>>>> d98dd178415fba421b7b787f2d319cea53f39e88
+        m_Texture: {fileID: 2800000, guid: a5d77c19597071645afd3317e1402599, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -77,18 +65,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - first:
         name: _ParallaxMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Ramp
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ToonShade
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -125,9 +101,6 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
-        name: _Outline
-      second: 0.0049
-    - first:
         name: _Parallax
       second: 0.02
     - first:
@@ -148,10 +121,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _OutlineColor
       second: {r: 0, g: 0, b: 0, a: 1}
