@@ -369,7 +369,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199612433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a635efc9c1a452d40ae99541739606b8, type: 3}
   m_Name: 
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199612433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b4d9798503e09645859ab18e76dc6e4, type: 3}
   m_Name: 
@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 517748453}
   - component: {fileID: 517748452}
   - component: {fileID: 517748451}
+  - component: {fileID: 517748455}
   m_Layer: 0
   m_Name: SteppingStone
   m_TagString: Untagged
@@ -676,6 +677,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &517748455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517748450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8465d01f56b04f4458a60901640ae566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinkSpeed: 0
+  height: 0
+  minSink: 0
+  maxSink: 0
 --- !u!1 &633943834
 GameObject:
   m_ObjectHideFlags: 0
