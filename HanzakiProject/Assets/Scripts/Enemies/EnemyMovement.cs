@@ -60,6 +60,7 @@ public class EnemyMovement : MonoBehaviour
                     anim.SetBool("Attacking", false);
                     anim.SetBool("Walking", false);
                     anim.SetBool("Idle", true);
+                    anim.SetBool("Running", false);
                     Idle();
                     break;
                 case States.Patrol:
@@ -67,12 +68,14 @@ public class EnemyMovement : MonoBehaviour
                     anim.SetBool("Attacking", false);
                     anim.SetBool("Idle", false);
                     anim.SetBool("Walking", true);
+                    anim.SetBool("Running", false);
                     Patrol();
                     break;
                 case States.Chasing:
                     anim.SetBool("Attacking", false);
                     anim.SetBool("Idle", false);
-                    anim.SetBool("Walking", true);
+                    anim.SetBool("Walking", false);
+                    anim.SetBool("Running", true);
                     agent.speed = runSpeed;
                     Chase();
                     break;
@@ -80,6 +83,7 @@ public class EnemyMovement : MonoBehaviour
                     anim.SetBool("Idle", false);
                     anim.SetBool("Walking", false);
                     anim.SetBool("Attacking", true);
+                    anim.SetBool("Running", false);
                     agent.speed = 0;
                     Attacking();
                     break;
@@ -146,7 +150,7 @@ public class EnemyMovement : MonoBehaviour
         {
             agent.SetDestination(player.position);
             agent.speed = runSpeed;
-            anim.SetBool("Idle", true);
+           // anim.SetBool("Idle", true);
         }
     }
 
