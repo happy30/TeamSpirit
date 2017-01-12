@@ -17,6 +17,9 @@ public class Shuriken : MonoBehaviour {
     public Transform playerModel;
     public PlayerController player;
 
+    public AudioSource sound;
+    public AudioClip shurikenThrow;
+
 
     void Awake()
     {
@@ -59,6 +62,7 @@ public class Shuriken : MonoBehaviour {
 
     public void ThrowShuriken(int attackPower)
     {
+        sound.PlayOneShot(shurikenThrow);
         Destroy(spawnedShurikenObject = (GameObject)Instantiate(shurikenObject, new Vector3(transform.position.x, transform.position.y +0.9f, transform.position.z) + playerModel.transform.forward * 1, Quaternion.identity), 3);
         spawnedShurikenObject.GetComponent<ShurikenObject>().attackPower = attackPower;
         stats.shurikenAmount--;

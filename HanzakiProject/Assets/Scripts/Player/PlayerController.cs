@@ -66,6 +66,9 @@ public class PlayerController : MonoBehaviour
 
     public float jumpCD;
 
+    public GameObject DashParticle;
+    GameObject spawnedDashParticle;
+
     /*
     float lastTapFwdTime = 0;  // the time of the last tap that occurred
     bool dblTapFwdReady = false;  // whether you you will execute a double-tap upon the next tap
@@ -333,6 +336,9 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(float distance)
     {
+        spawnedDashParticle = (GameObject)Instantiate(DashParticle, transform.position, Quaternion.identity);
+        spawnedDashParticle.transform.SetParent(transform);
+        Destroy(spawnedDashParticle, 0.3f);
         _rb.velocity = new Vector3(playerModel.transform.forward.x * distance, 0, playerModel.transform.forward.z * distance);
     }
     public void Dash(float distance, float height)
