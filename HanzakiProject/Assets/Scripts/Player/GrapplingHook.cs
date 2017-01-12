@@ -33,10 +33,6 @@ public class GrapplingHook : MonoBehaviour {
 
     
     public Transform playerModel;
-    public Transform handPos;
-    public PlayerController player;
-
-    public Animator anim;
 
     void Awake()
     {
@@ -46,7 +42,6 @@ public class GrapplingHook : MonoBehaviour {
         playerModel = GameObject.Find("PlayerModel").transform;
         sound = GetComponent<AudioSource>();
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
-        player = GetComponent<PlayerController>();
     }
     void Update ()
     {
@@ -55,9 +50,30 @@ public class GrapplingHook : MonoBehaviour {
         {
             if(Input.GetKeyDown(InputManager.Hook) && canHook && hookCooldown <= 0 || Input.GetKeyDown(InputManager.JHook) && canHook && hookCooldown <= 0)
             {
-                anim.SetBool("Hook", true);
-                Invoke("StopAnim", 0.1f);
-                Invoke("FireHook", 0.3f);
+                soundPlayed = false; 
+                sound.PlayOneShot(fireHook, 0.3f);
+                if (spawnedClaw != null)
+                {
+                    Destroy(spawnedClaw);
+                }
+                spawnedClaw = (GameObject)Instantiate(claw, transform.position, Quaternion.identity);
+                spawnedClaw.transform.LookAt(hook);
+                if(!grabbing)
+                {
+                    grabbing = true;
+                }
+                else 
+                {
+                        Debug.Log("should hook");
+                        _rb.velocity = (playerModel.transform.forward * 5) + new Vector3(0, 10, 0);
+                        grabTimer = 0;
+                        grabbing = false;
+                        linePositions[0] = new Vector3(0, 0, 0);
+                        linePositions[1] = new Vector3(0, 0, 0);
+                        _line.SetPositions(linePositions);
+                        grabbing = false;
+                    
+                }
                 
             }
             else if (Input.GetKeyDown(InputManager.Hook) || Input.GetKeyDown(InputManager.JHook))
@@ -86,17 +102,16 @@ public class GrapplingHook : MonoBehaviour {
         if(grabbing)
         {
             spawnedClaw.transform.position = Vector3.MoveTowards(spawnedClaw.transform.position, hook.transform.position, clawSpeed * Time.deltaTime);
-            linePositions[0] = handPos.position;
+            linePositions[0] = transform.position;
             linePositions[1] = spawnedClaw.transform.position;
             _line.SetPositions(linePositions);
             grabTimer += Time.deltaTime;
             hookCooldown = 3;
             ui.UseSkill(2);
+
             
 
-
-
-            if (Vector3.Distance(spawnedClaw.transform.position, hook.transform.position) < 0.1f)
+            if(Vector3.Distance(spawnedClaw.transform.position, hook.transform.position) < 0.1f)
             {
                 if(!soundPlayed)
                 {
@@ -154,40 +169,4 @@ public class GrapplingHook : MonoBehaviour {
             
         }
 	}
-
-    void FireHook()
-    {
-        player.StopMovement(0.5f);
-        soundPlayed = false;
-        sound.PlayOneShot(fireHook, 0.3f);
-        if (spawnedClaw != null)
-        {
-            Destroy(spawnedClaw);
-        }
-        spawnedClaw = (GameObject)Instantiate(claw, transform.position, Quaternion.identity);
-        spawnedClaw.transform.LookAt(hook);
-        if (!grabbing)
-        {
-            grabbing = true;
-        }
-        else
-        {
-
-            Debug.Log("should hook");
-            _rb.velocity = (playerModel.transform.forward * 5) + new Vector3(0, 10, 0);
-            grabTimer = 0;
-            grabbing = false;
-            linePositions[0] = new Vector3(0, 0, 0);
-            linePositions[1] = new Vector3(0, 0, 0);
-            _line.SetPositions(linePositions);
-            grabbing = false;
-
-
-        }
-    }
-
-    void StopAnim()
-    {
-        anim.SetBool("Hook", false);
-    }
 }

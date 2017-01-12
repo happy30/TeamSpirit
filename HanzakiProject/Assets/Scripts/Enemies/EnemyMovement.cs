@@ -32,25 +32,12 @@ public class EnemyMovement : MonoBehaviour
     public float rayDis;
     public float outOfRange;
 
-    public int maxHealth;
     public int health;
     private Image image;
-
-    GameObject spawnedHealthSprite;
-    public Vector3 healthSpriteRotation;
-    public float spriteYOffset;
     public GameObject healthSprite;
     public List<Sprite> spriteArray = new List<Sprite>();
-
     public float distance;
     public float playerDistance;
-
-    public Component[] colliders;
-
-    public GameObject deathParticle;
-    GameObject spawnedDeathparticle;
-
-
 
     void Awake()
     {
@@ -60,7 +47,6 @@ public class EnemyMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         image = healthSprite.GetComponent<Image>();
-        maxHealth = health;
     }
 
     void Update()
@@ -74,6 +60,7 @@ public class EnemyMovement : MonoBehaviour
                     anim.SetBool("Attacking", false);
                     anim.SetBool("Walking", false);
                     anim.SetBool("Idle", true);
+                    anim.SetBool("Running", false);
                     Idle();
                     break;
                 case States.Patrol:
@@ -81,12 +68,14 @@ public class EnemyMovement : MonoBehaviour
                     anim.SetBool("Attacking", false);
                     anim.SetBool("Idle", false);
                     anim.SetBool("Walking", true);
+                    anim.SetBool("Running", false);
                     Patrol();
                     break;
                 case States.Chasing:
                     anim.SetBool("Attacking", false);
                     anim.SetBool("Idle", false);
-                    anim.SetBool("Walking", true);
+                    anim.SetBool("Walking", false);
+                    anim.SetBool("Running", true);
                     agent.speed = runSpeed;
                     Chase();
                     break;
@@ -94,56 +83,17 @@ public class EnemyMovement : MonoBehaviour
                     anim.SetBool("Idle", false);
                     anim.SetBool("Walking", false);
                     anim.SetBool("Attacking", true);
+                    anim.SetBool("Running", false);
                     agent.speed = 0;
                     Attacking();
                     break;
             }
-        }
-        else
-        {
-            Invoke("Die", 0.5f);
         }
         playerDistance = Vector3.Distance(player.position, transform.position);
         if (gameObject.GetComponent<EnemySight>().playerInView == true && playerDistance < outOfRange && enemyStates != States.Attacking && player.GetComponent<PlayerController>().invulnerable == false)
         {
             enemyStates = States.Chasing;
         }
-
-        if(playerDistance < 10 && spawnedHealthSprite == null && isAlive)
-        {
-            spawnedHealthSprite = (GameObject)Instantiate(healthSprite);
-            spawnedHealthSprite.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-            spawnedHealthSprite.GetComponent<HealthFollowEnemy>().enemy = transform;
-            spawnedHealthSprite.transform.eulerAngles = healthSpriteRotation;
-            spawnedHealthSprite.GetComponent<HealthFollowEnemy>().yOffset = spriteYOffset;
-            UpdatedHealth();
-
-        }
-        else if(playerDistance > 10)
-        {
-            Destroy(spawnedHealthSprite);
-        }
-
-    }
-
-    void Die()
-    {
-        colliders = GetComponentsInChildren<Collider>();
-        foreach (Collider col in colliders)
-        {
-            col.enabled = false;
-        }
-        GetComponent<Rigidbody>().useGravity = false;
-            
-        agent.enabled = false;
-
-        transform.position -= new Vector3(0, 1f * Time.deltaTime, 0);
-    }
-
-    void SpawnDeathParticle()
-    {
-        spawnedDeathparticle = (GameObject)Instantiate(deathParticle, transform.position, Quaternion.identity);
-        Destroy(spawnedDeathparticle, 5f);
     }
 
     void Patrol()
@@ -152,11 +102,7 @@ public class EnemyMovement : MonoBehaviour
         {
             currentWayPoint = 0;
         }
-        if(agent.enabled)
-        {
-            agent.SetDestination(wayPoints[currentWayPoint].position);
-        }
-        
+        agent.SetDestination(wayPoints[currentWayPoint].position);
         distance = Vector3.Distance(wayPoints[currentWayPoint].position, transform.position);
         if(distance < 3)
         {
@@ -185,9 +131,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void Knockback()
     {
-        Camera.main.GetComponent<CameraController>().ShakeEffect();
         print("knockback!!!!!!");
-        _rb.velocity = new Vector3(transform.forward.x * -5f, 8f, 0);
+        _rb.velocity = new Vector3(transform.forward.x * -10f, 20f, 0);
     }
 
     void Chase()
@@ -203,13 +148,9 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            if(agent.enabled)
-            {
-                agent.SetDestination(player.position);
-                agent.speed = runSpeed;
-            }
-            anim.SetBool("Idle", true);
-
+            agent.SetDestination(player.position);
+            agent.speed = runSpeed;
+           // anim.SetBool("Idle", true);
         }
     }
 
@@ -238,19 +179,12 @@ public class EnemyMovement : MonoBehaviour
 
     public void GetHit(int damageGet)
     {
-        agent.enabled = false;
-        Invoke("EnableAgent", 0.5f);
         health -= damageGet;
         Knockback();
         if (health <= 0)
         {
-            Invoke("SpawnDeathParticle", 1f);
             anim.SetBool("Death", true);
             GetComponent<EnemyMovement>().isAlive = false;
-            if (spawnedHealthSprite != null)
-            {
-                Destroy(spawnedHealthSprite);
-            }
         }
         else
         {
@@ -260,33 +194,6 @@ public class EnemyMovement : MonoBehaviour
 
     void UpdatedHealth()
     {
-        if(spawnedHealthSprite != null)
-        {
-            if((float)health / (float)maxHealth == 1)
-            {
-                spawnedHealthSprite.GetComponent<SpriteRenderer>().sprite = spriteArray[0];
-                print("max" + health / maxHealth);
-            }
-            else if ((float)health / (float)maxHealth > 0.7f)
-            {
-                spawnedHealthSprite.GetComponent<SpriteRenderer>().sprite = spriteArray[1];
-                print("1" + health / (float)maxHealth);
-            }
-            else if ((float)health / (float)maxHealth > 0.3f)
-            {
-                spawnedHealthSprite.GetComponent<SpriteRenderer>().sprite = spriteArray[2];
-                print("2" + health / (float)maxHealth);
-            }
-            else if((float)health / (float)maxHealth < 0.3f)
-            {
-                print("3" + health / maxHealth);
-                spawnedHealthSprite.GetComponent<SpriteRenderer>().sprite = spriteArray[3];
-            }
-        }
-    }
-
-    void EnableAgent()
-    {
-        agent.enabled = true;
+        //image.sprite = spriteArray[health];
     }
 }

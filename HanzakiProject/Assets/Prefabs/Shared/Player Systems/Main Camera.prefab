@@ -24,13 +24,12 @@ GameObject:
   - component: {fileID: 124000011739225896}
   - component: {fileID: 81000010427582462}
   - component: {fileID: 114000011962638484}
-  - component: {fileID: 114561233271583428}
-  - component: {fileID: 114112904550156736}
   - component: {fileID: 114758740053311150}
+  - component: {fileID: 114561233271583428}
+  - component: {fileID: 114114100928640298}
   - component: {fileID: 82282879755323436}
   - component: {fileID: 114100188927638536}
   - component: {fileID: 114929637274746518}
-  - component: {fileID: 114916535711000350}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44,8 +43,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012402827316}
-  m_LocalRotation: {x: -0.2242058, y: 0.47179702, z: -0.12541284, w: -0.8434518}
-  m_LocalPosition: {x: 70.61936, y: 13.633334, z: 222.14822}
+  m_LocalRotation: {x: 0.01745245, y: 0, z: 0, w: 0.99984777}
+  m_LocalPosition: {x: -41, y: 2.3, z: -128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +100,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d2b2e55be4345d94287a562dedcbbaee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -193,18 +192,15 @@ MonoBehaviour:
   player: {fileID: 0}
   playerController: {fileID: 0}
   cameraOffsetX: 0
-  cameraOffsetY: 1
-  cameraOffsetZ: 0
-  distance: 10
-  followTime: 1.5
-  inCutscene: 1
+  cameraOffsetY: 4
+  followTime: 0
+  inCutscene: 0
   inPuzzle: 0
-  additionalCameraOffset: {x: 0, y: 0, z: 0}
-  stance: 2
+  stance: 0
   cameraProg: 0
   followObject: {fileID: 0}
   hookObject: {fileID: 0}
-  cutsceneZ: 214.94
+  cutsceneZ: 0
   cameraRot: {x: 0, y: 0, z: 0}
 --- !u!114 &114100188927638536
 MonoBehaviour:
@@ -219,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopEnd: 81.75
   loopDuration: 71.55
---- !u!114 &114112904550156736
+--- !u!114 &114114100928640298
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -230,15 +226,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e318a6043c1cb4a8ce1c8805bab930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 1
+  resolution: 2
   screenBlendMode: 0
   sunTransform: {fileID: 0}
-  radialBlurIterations: 2
-  sunColor: {r: 1, g: 1, b: 1, a: 1}
-  sunThreshold: {r: 0.87, g: 0.74, b: 0.65, a: 1}
-  sunShaftBlurRadius: 3.15
-  sunShaftIntensity: 0.67
-  maxRadius: 3
+  radialBlurIterations: 3
+  sunColor: {r: 0.9411765, g: 0.5562354, b: 0.28419843, a: 1}
+  sunThreshold: {r: 0.6911765, g: 0.6911765, b: 0.6911765, a: 1}
+  sunShaftBlurRadius: 1
+  sunShaftIntensity: 1
+  maxRadius: 1.25
   useDepthTexture: 1
   sunShaftsShader: {fileID: 4800000, guid: d3b1c8c1036784176946f5cfbfb7fe4c, type: 3}
   simpleClearShader: {fileID: 4800000, guid: f688f89ed5eb847c5b19c934a0f1e772, type: 3}
@@ -273,7 +269,7 @@ MonoBehaviour:
   hdr: 1
   sepBlurSpread: 1.5
   useSrcAlphaAsMask: 0.5
-  bloomIntensity: 1
+  bloomIntensity: 0.5
   bloomThreshold: 0.5
   bloomBlurIterations: 2
   lensflares: 1
@@ -298,26 +294,6 @@ MonoBehaviour:
     type: 3}
   brightPassFilterShader: {fileID: 4800000, guid: 186c4c0d31e314f049595dcbaf4ca129,
     type: 3}
---- !u!114 &114916535711000350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012402827316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Radius: 0.4
-  m_SampleCount: 1
-  m_OcclusionIntensity: 1.5
-  m_Blur: 2
-  m_Downsampling: 2
-  m_OcclusionAttenuation: 1
-  m_MinZ: 0.01
-  m_SSAOShader: {fileID: 4800000, guid: 43ca18288c424f645aaa1e9e07f04c50, type: 3}
-  m_RandomTexture: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
 --- !u!114 &114929637274746518
 MonoBehaviour:
   m_ObjectHideFlags: 1
