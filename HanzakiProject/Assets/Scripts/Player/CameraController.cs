@@ -28,8 +28,6 @@ public class CameraController : MonoBehaviour
     public CameraStance stance;
     public bool cameraProg;
 
-    public Vector3 shakePos;
-
     float timer;
 
     public GameObject followObject;
@@ -85,18 +83,6 @@ public class CameraController : MonoBehaviour
 
         
     }
-
-    public void ShakeEffect()
-    {
-        shakePos = new Vector3(-0.6f, -0.3f, 0);
-        Invoke("EndOfShake", 0.15f);
-    }
-
-    void EndOfShake()
-    {
-        shakePos = new Vector3(0, 0, 0);
-    }
-
 
     //Make the camera follow the player. If the player moves the camera offset will change so that it gives a better vision of what's in front of the player.
     public void FollowPlayer()
@@ -175,7 +161,7 @@ public class CameraController : MonoBehaviour
                         player.transform.position.y + cameraOffsetY,
                         player.transform.position.z + (player.transform.forward.z * -distance));
 
-                    transform.position = Vector3.Slerp(transform.position, cameraPos + additionalCameraOffset + shakePos, followTime * Time.deltaTime);
+                    transform.position = Vector3.Slerp(transform.position, cameraPos + additionalCameraOffset, followTime * Time.deltaTime);
                     transform.eulerAngles = new Vector3(
                         Mathf.LerpAngle(transform.eulerAngles.x, cameraRot.x, followTime * Time.deltaTime), 
                         Mathf.LerpAngle(transform.eulerAngles.y, cameraRot.y, followTime * Time.deltaTime), 

@@ -16,11 +16,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000013670542426}
-  - component: {fileID: 33000014214103156}
-  - component: {fileID: 23000012781200916}
+  - 4: {fileID: 4000013670542426}
+  - 33: {fileID: 33000014214103156}
+  - 23: {fileID: 23000012781200916}
   m_Layer: 0
   m_Name: Knife1
   m_TagString: Untagged
@@ -33,9 +33,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000013314846718}
+  - 4: {fileID: 4000013314846718}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -48,11 +48,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000010567602830}
-  - component: {fileID: 33000012643045620}
-  - component: {fileID: 23000011746033014}
+  - 4: {fileID: 4000010567602830}
+  - 33: {fileID: 33000012643045620}
+  - 23: {fileID: 23000011746033014}
   m_Layer: 0
   m_Name: Model2
   m_TagString: Untagged
@@ -65,11 +65,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000012632303966}
-  - component: {fileID: 33000013961694404}
-  - component: {fileID: 23000012872813994}
+  - 4: {fileID: 4000012632303966}
+  - 33: {fileID: 33000013961694404}
+  - 23: {fileID: 23000012872813994}
   m_Layer: 0
   m_Name: Knife002
   m_TagString: Untagged
@@ -82,12 +82,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000010331925598}
-  - component: {fileID: 114000013638635690}
-  - component: {fileID: 54000012659511238}
-  - component: {fileID: 65000011431405220}
+  - 4: {fileID: 4000010331925598}
+  - 114: {fileID: 114000013638635690}
+  - 54: {fileID: 54000012659511238}
+  - 65: {fileID: 65000011431405220}
   m_Layer: 0
   m_Name: 3D_INT_PRFB_SHURIKEN
   m_TagString: Untagged
@@ -100,11 +100,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000013693549440}
-  - component: {fileID: 33000010136189732}
-  - component: {fileID: 23000011716494890}
+  - 4: {fileID: 4000013693549440}
+  - 33: {fileID: 33000010136189732}
+  - 23: {fileID: 23000011716494890}
   m_Layer: 0
   m_Name: Knife003
   m_TagString: Untagged
@@ -121,11 +121,11 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -41.019493, y: 0.317043, z: 2.0368767}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013314846718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000010567602830
 Transform:
   m_ObjectHideFlags: 1
@@ -135,11 +135,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013693549440}
   m_Father: {fileID: 4000013314846718}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4000012632303966
 Transform:
   m_ObjectHideFlags: 1
@@ -149,11 +149,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.8660254, w: 0.50000006}
   m_LocalPosition: {x: 0.052726284, y: 0.07925807, z: -0.000000011175871}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013670542426}
   m_Father: {fileID: 4000013693549440}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000013314846718
 Transform:
   m_ObjectHideFlags: 1
@@ -163,11 +163,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010567602830}
   m_Father: {fileID: 4000010331925598}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000013670542426
 Transform:
   m_ObjectHideFlags: 1
@@ -177,10 +177,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.86602545, w: 0.49999997}
   m_LocalPosition: {x: 0.06494248, y: 0.087696105, z: 0.0000000037252903}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000012632303966}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000013693549440
 Transform:
   m_ObjectHideFlags: 1
@@ -190,11 +190,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.8660254, w: 0.50000006}
   m_LocalPosition: {x: 0.044395532, y: 0.024535486, z: -0.0007678829}
   m_LocalScale: {x: 0.9009826, y: 0.9009826, z: 0.90098256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012632303966}
   m_Father: {fileID: 4000010567602830}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23000011716494890
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -209,9 +209,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 52f5d8529e3645e4aa60edd731a7dd16, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -219,7 +217,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -240,9 +238,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 52f5d8529e3645e4aa60edd731a7dd16, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -250,7 +246,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -271,9 +267,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 52f5d8529e3645e4aa60edd731a7dd16, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -281,7 +275,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -302,9 +296,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 52f5d8529e3645e4aa60edd731a7dd16, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -312,7 +304,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -386,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPower: 1
-  projectileSpeed: 25
+  projectileSpeed: 15
   player: {fileID: 4000010979179118, guid: 720fe15f77b7b204e811a33376149cf5, type: 2}
   playerController: {fileID: 0}
   model: {fileID: 4000013314846718}
