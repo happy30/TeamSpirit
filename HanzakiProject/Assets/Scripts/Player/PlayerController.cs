@@ -51,9 +51,6 @@ public class PlayerController : MonoBehaviour
     public Material playerMat;
 
     public Vector3 playerRotation;
-    public float movementTimer;
-    public float movementTime;
-    public bool canMove;
 
     //Combat
     public bool invulnerable;
@@ -65,9 +62,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip smokeBombSound;
 
     public float jumpCD;
-
-    public GameObject DashParticle;
-    GameObject spawnedDashParticle;
 
     /*
     float lastTapFwdTime = 0;  // the time of the last tap that occurred
@@ -105,13 +99,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ChangeControlsDependingOnLevelType();
-        canMove = true;
     }
 	
 	void Update ()
     {
-        CanMove();
-        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile && canMove)
+        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile)
         {
             SetMovement();
             Move();
@@ -144,21 +136,6 @@ public class PlayerController : MonoBehaviour
         else if (levelType == LevelType.TD)
         {
             InputManager.Jump = InputManager.JumpTD;
-        }
-    }
-
-
-    void CanMove()
-    {
-        if(!canMove)
-        {
-            movementTimer += Time.deltaTime;
-            if(movementTimer > movementTime)
-            {
-                canMove = true;
-                movementTimer = 0;
-                movementTime = 0;
-            }
         }
     }
 
@@ -336,9 +313,6 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(float distance)
     {
-        spawnedDashParticle = (GameObject)Instantiate(DashParticle, transform.position, Quaternion.identity);
-        spawnedDashParticle.transform.SetParent(transform);
-        Destroy(spawnedDashParticle, 0.3f);
         _rb.velocity = new Vector3(playerModel.transform.forward.x * distance, 0, playerModel.transform.forward.z * distance);
     }
     public void Dash(float distance, float height)
@@ -615,14 +589,6 @@ public class PlayerController : MonoBehaviour
         return false;
                 
     }
-
-
-    public void StopMovement (float time)
-    {
-        canMove = false;
-        movementTime = time;
-    }
-
 
     void OnCollisionEnter(Collision col)
     {

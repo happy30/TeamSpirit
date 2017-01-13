@@ -79,7 +79,7 @@ public class KartController : MonoBehaviour
                 {
                     float upwardSpeed = _rb.velocity.y;
                     float lift = hoverError * hoverForce - upwardSpeed * hoverDamp;
-                   // _rb.AddForce(lift * Vector3.up);
+                    _rb.AddForce(lift * Vector3.up);
                 }
             }
     }
@@ -94,11 +94,6 @@ public class KartController : MonoBehaviour
         if(Physics.Raycast(transform.position,-transform.up,out hit, rayDis))
         {
             CheckFloor(hit);
-            _rb.useGravity = false;
-        }
-        else
-        {
-            _rb.useGravity = true;
         }
 
         // Front Back
