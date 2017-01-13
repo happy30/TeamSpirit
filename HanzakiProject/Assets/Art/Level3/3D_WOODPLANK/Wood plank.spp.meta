@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c616d49c3d250624d828850da60046d5
 timeCreated: 1484231473
+=======
+<<<<<<< HEAD:HanzakiProject/Assets/Art/Level3/3D_WOODPLANK/Wood plank.spp.meta
+guid: 6d823c2aac2545f4490bf71c93d42306
+timeCreated: 1484307891
+=======
+guid: e916a179ae606e34e88640f8b8eb7762
+timeCreated: 1484308189
+>>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393:HanzakiProject/Assets/Art/Level3/3D_WOODPLANK/Wood plank.spp.meta
+>>>>>>> 1fd72b7cc3b72927ca26b8fe416bdb1a585d5e84
 licenseType: Free
 DefaultImporter:
   userData: 
