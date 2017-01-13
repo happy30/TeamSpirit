@@ -36,13 +36,21 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
+<<<<<<< HEAD
   m_Sun: {fileID: 1531978320}
+=======
+  m_Sun: {fileID: 0}
+>>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
+<<<<<<< HEAD
   m_GIWorkflowMode: 0
+=======
+  m_GIWorkflowMode: 1
+>>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -51,10 +59,17 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
+<<<<<<< HEAD
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 4
     m_Resolution: 1
+=======
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 4
+    m_Resolution: 2
+>>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393
     m_BakeResolution: 40
     m_TextureWidth: 1024
     m_TextureHeight: 1024
@@ -91,6 +106,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1537909
 GameObject:
   m_ObjectHideFlags: 0
@@ -98221,3 +98237,5 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2097632000}
   m_Mesh: {fileID: 4300000, guid: 1a51762bea9bb6a4c99df74a5f8dba86, type: 3}
+=======
+>>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393
