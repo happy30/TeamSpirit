@@ -62,6 +62,7 @@ public class EnemySight : MonoBehaviour
     {
         if(trigger.transform.tag == "Player")
         {
+            print ("inTrigger");
             storedCol = trigger;
             inTrigger = true;   
         }
