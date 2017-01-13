@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 114976387619966220}
   - component: {fileID: 114185007662876912}
   m_Layer: 0
-  m_Name: 3D_CHAR_MODL_KAP+ANIM (1)
+  m_Name: PRFB_CHAR_Kappa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

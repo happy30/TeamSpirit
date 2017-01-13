@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4873805624763188}
   - component: {fileID: 95381674119585494}
   m_Layer: 0
-  m_Name: 3D_ENV_MODL_BRIDGE
+  m_Name: 3D_ENV_PRFB_BRIDGE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

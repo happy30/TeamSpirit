@@ -162,10 +162,10 @@ Material:
       second: 0.02
     - first:
         name: _ReflDistort
-      second: 0.5
+      second: 1.199
     - first:
         name: _RefrDistort
-      second: 0.5
+      second: 1.084
     - first:
         name: _Shininess
       second: 200
@@ -183,14 +183,14 @@ Material:
       second: 0
     - first:
         name: _WaveScale
-      second: 0.05
+      second: 0.0989
     - first:
         name: _ZWrite
       second: 1
     m_Colors:
     - first:
         name: WaveSpeed
-      second: {r: -30, g: 6, b: -25, a: -6}
+      second: {r: -20, g: 60, b: -10, a: 50}
     - first:
         name: _AnimationDirection
       second: {r: 1, g: 1, b: 1, a: 1}
@@ -244,7 +244,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _HorizonColor
-      second: {r: 0.06817688, g: 0.08773124, b: 0.084, a: 0}
+      second: {r: 1, g: 1, b: 1, a: 0}
     - first:
         name: _InvFadeParemeter
       second: {r: 0.15, g: 0.15, b: 0.5, a: 1}
