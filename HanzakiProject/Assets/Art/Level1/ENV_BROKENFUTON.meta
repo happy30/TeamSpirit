@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HanzakiProject/Assets/Art/Level1/ENV_BROKENFUTON.meta
+guid: 9b9dd9aa255b8fb4d801794f4352a334
+folderAsset: yes
+timeCreated: 1484307891
+=======
 guid: 820f88e566e6f8d4e8d78e01d36dae32
 folderAsset: yes
 timeCreated: 1484060768
+>>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393:HanzakiProject/Assets/Art/Level1/ENV_BROKENFUTON.meta
 licenseType: Free
 DefaultImporter:
   userData: 
