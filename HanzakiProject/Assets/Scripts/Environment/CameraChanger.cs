@@ -12,6 +12,10 @@ public class CameraChanger : MonoBehaviour
             if(Camera.main.gameObject.GetComponent<CameraController>().inPuzzle)
             {
                 Camera.main.gameObject.GetComponent<CameraController>().inPuzzle = false;
+                if(col.gameObject.GetComponent<PlayerController>().onSlipperyTile)
+                {
+                    col.gameObject.GetComponent<PlayerController>().onSlipperyTile = false;
+                }
             }
             else
             {

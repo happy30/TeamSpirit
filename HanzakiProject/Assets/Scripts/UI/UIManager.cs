@@ -79,6 +79,8 @@ public class UIManager : MonoBehaviour {
 
     float storeSFXVolume;
 
+    public Image bloodOverlay;
+
 
 	
 	void Awake()
@@ -132,6 +134,11 @@ public class UIManager : MonoBehaviour {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         _sound.PlayOneShot(closeMenu);
+    }
+
+    void BloodOverlayEffect()
+    {
+        bloodOverlay.color = new Color(1, 1, 1, 0.5f);
     }
 
     void SetSkillIcon()
