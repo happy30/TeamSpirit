@@ -1,17 +1,9 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
-guid: f8a118f0dc680c04eadd14de7bf8b4ef
-timeCreated: 1484231481
-=======
-<<<<<<< HEAD
-guid: ccef9e3a5511eae48aa36b080880ee9f
-timeCreated: 1484307905
-=======
 guid: ccd87b198c9c80d498fc08a0b3d303d0
-timeCreated: 1484308344
->>>>>>> 149973649ccaf8d9a31d77d3be718a3427ac6393
->>>>>>> 1fd72b7cc3b72927ca26b8fe416bdb1a585d5e84
-licenseType: Free
+=======
+guid: f8a118f0dc680c04eadd14de7bf8b4ef
+>>>>>>> a5129fdcaf5f897f3d49f0430555ca671edf115b
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -20,8 +12,9 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Box001
+    9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -44,7 +37,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -82,7 +75,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
