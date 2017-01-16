@@ -22,11 +22,11 @@ public class RedOverlayFadeOut : MonoBehaviour {
             alpha -= Time.deltaTime;
         }
 
-        GetComponent<Image>().color = new Color(1, 1, 1, alpha);
+        GetComponent<Image>().color = new Color(1, 0, 0, alpha);
 	}
 
     public void Activate()
     {
-        alpha = 1;
+        alpha = 0.5f;
     }
 }

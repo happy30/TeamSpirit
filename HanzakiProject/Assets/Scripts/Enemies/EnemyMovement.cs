@@ -186,8 +186,15 @@ public class EnemyMovement : MonoBehaviour
     public void Knockback()
     {
         Camera.main.GetComponent<CameraController>().ShakeEffect();
-        print("knockback!!!!!!");
-        _rb.velocity = new Vector3(transform.forward.x * -5f, 8f, 0);
+        if(player.position.x - transform.position.x > 0)
+        {
+            _rb.velocity = new Vector3(-5f, 8f, 0);
+        }
+        else
+        {
+            _rb.velocity = new Vector3(5f, 8f, 0);
+        }
+        
     }
 
     void Chase()
@@ -197,6 +204,7 @@ public class EnemyMovement : MonoBehaviour
             enemyStates = States.Patrol;
         }
 
+        Debug.Log(playerDistance + " playerdistance," + attackRange + " Attackrange"); 
         if (playerDistance <= attackRange)
         {
             enemyStates = States.Attacking;
@@ -219,7 +227,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hit.transform.tag == "Player")
             {
-                hit.transform.GetComponent<PlayerController>().GetHit(attackDamage);
+                hit.transform.GetComponent<PlayerController>().GetHit(attackDamage, transform);
             }
         }
     }
@@ -234,6 +242,8 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyStates = States.Patrol;
         }
+        Vector3 targetPostition = new Vector3(player.position.x, this.transform.position.y, player.position.z);
+        this.transform.LookAt(targetPostition);
     }
 
     public void GetHit(int damageGet)

@@ -250,11 +250,26 @@ public class PlayerController : MonoBehaviour
                     tapTimer -= Time.deltaTime;
                     if(angle < lastDirection + 30 && angle > lastDirection - 30 && nogeen)
                     {
-                        Dash(dashSpeed);
-                        dashCooldown = 2f;
-                        ui.UseSkill(4);
-                        hasTapped = false;
-                        tapTimer = 0;
+                        if(angle == 0)
+                        {
+                            if(xvertical != 0)
+                            {
+                                Dash(dashSpeed);
+                                dashCooldown = 2f;
+                                ui.UseSkill(4);
+                                hasTapped = false;
+                                tapTimer = 0;
+                            }
+                        }
+                        else
+                        {
+                            Dash(dashSpeed);
+                            dashCooldown = 2f;
+                            ui.UseSkill(4);
+                            hasTapped = false;
+                            tapTimer = 0;
+                        }
+                        
                     }
                 }
                 else
@@ -341,7 +356,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Dash(float distance, float height)
     {
-        _rb.velocity = playerModel.transform.forward * distance + new Vector3(0, height, 0);
+        _rb.velocity = new Vector3(distance, height, 0);
     }
 
     //Move the player and let it jump
@@ -552,13 +567,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void GetHit(int damage)
+    public void GetHit(int damage, Transform hitter)
     {
         if(!invulnerable)
         {
             stats.health -= damage;
             GameObject.Find("Canvas").GetComponent<HeartScript>().DrawHearts();
-            Dash(-10f, 4);
+            if(hitter.position.x > transform.position.x)
+            {
+                Dash(-10f, 4);
+            }
+            else
+            {
+                Dash(10f, 4);
+            }
+            
             ui.BloodOverlayEffect();
         }
     }
