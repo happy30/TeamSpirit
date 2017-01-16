@@ -12,6 +12,8 @@ public class KartCamera : MonoBehaviour
     Camera cam;
 
     public float distance;
+    public float maxDistance;
+
     float currentX = 0.0f;
     float currentY = 0.0f;
     public float height;
@@ -19,6 +21,8 @@ public class KartCamera : MonoBehaviour
     float sensitivityX = 4.0f;
     float sensitivityY = 1.0f;
     public float followSpeed;
+
+    RaycastHit hit;
 
 
     // Use this for initialization
@@ -37,6 +41,15 @@ public class KartCamera : MonoBehaviour
         if (!Input.GetKey(InputManager.Hook))
         {
             FollowKart();
+        }
+        CameraInBounds();
+    }
+    public void CameraInBounds()
+    {
+        Vector3 camDirection = camTransform.position - kartNumber.position;
+        if(Physics.Raycast(kartNumber.position, camDirection, out hit, distance))
+        {   
+            transform.position = hit.point;
         }
     }
     public void FollowKart()
