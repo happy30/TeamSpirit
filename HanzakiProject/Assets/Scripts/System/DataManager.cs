@@ -24,7 +24,8 @@ public class DataManager : MonoBehaviour {
     bool shuriken;
     bool katana;
     bool displayHotkeys;
-
+    GameObject questKappa1;
+    GameObject questKappa2;
 
     void Awake()
     {
@@ -42,7 +43,7 @@ public class DataManager : MonoBehaviour {
         displayHotkeys = optionMan.displayHotkeys;
 
 
-         xmlToSave = new XmlManager(currSavePoint, shurikenCount, player.position, questProgress, grappHook, smokeBomb, shuriken, katana, displayHotkeys);
+         xmlToSave = new XmlManager(currSavePoint, shurikenCount, player.position, questProgress, grappHook, smokeBomb, shuriken, katana, displayHotkeys,questKappa1,questKappa2);
     }
 
 	public void LoadData ()
@@ -57,6 +58,14 @@ public class DataManager : MonoBehaviour {
         statMan.shurikenUnlocked = xmlSaved.shurikenBool;
         statMan.katanaUnlocked = xmlSaved.katana;
         optionMan.displayHotkeys = xmlSaved.displayHotkeys;
+        if(questKappa1 != null)
+        {
+            questKappa1 = xmlSaved.questkappa1;
+        }
+        if (questKappa2 != null)
+        {
+            questKappa2 = xmlSaved.questkappa2;
+        }
     }
 
     public void SaveData()
@@ -71,6 +80,14 @@ public class DataManager : MonoBehaviour {
         xmlSaved.shurikenBool = statMan.shurikenUnlocked;
         xmlSaved.katana = statMan.katanaUnlocked;
         xmlSaved.displayHotkeys = optionMan.displayHotkeys;
+        if (questKappa1 != null)
+        {
+            xmlSaved.questkappa1 = questKappa1;
+        }
+        if (questKappa2 != null)
+        {
+            xmlSaved.questkappa2 = questKappa2;
+        }
     }
 
     public XmlManager StreamData()
