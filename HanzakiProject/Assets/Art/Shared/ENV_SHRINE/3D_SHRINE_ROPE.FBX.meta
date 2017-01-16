@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5e5aa44d18671cf44814acb95973c65a
 timeCreated: 1484574275
+=======
+guid: afebef4f97e0aeb48b20432fd61e83cd
+timeCreated: 1484577306
+>>>>>>> ea932536c00377fa72a4fc7eecb6673b762e35d2
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -12,7 +17,11 @@ ModelImporter:
     4300000: Touw
     9500000: //RootNode
   materials:
+<<<<<<< HEAD
     importMaterials: 1
+=======
+    importMaterials: 0
+>>>>>>> ea932536c00377fa72a4fc7eecb6673b762e35d2
     materialName: 0
     materialSearch: 1
   animations:

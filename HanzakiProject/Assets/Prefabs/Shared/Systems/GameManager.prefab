@@ -16,21 +16,22 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011052474186}
-  - 114: {fileID: 114000013739929148}
-  - 114: {fileID: 114000013755845498}
-  - 114: {fileID: 114000013318581192}
-  - 114: {fileID: 114000013089404796}
-  - 114: {fileID: 114000010534636084}
-  - 114: {fileID: 114000013982634468}
+  - component: {fileID: 4000011052474186}
+  - component: {fileID: 114000013739929148}
+  - component: {fileID: 114000013755845498}
+  - component: {fileID: 114000013318581192}
+  - component: {fileID: 114000013089404796}
+  - component: {fileID: 114000010534636084}
+  - component: {fileID: 114000013982634468}
+  - component: {fileID: 114865731012516700}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4000011052474186
 Transform:
@@ -38,13 +39,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011287304802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000010534636084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskProgession: 0
+  mainQuestProgression: 0
   spawnPoints:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -91,7 +93,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce8e2e3eacacce4193e79134fae3f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainQuests: []
+  mainQuests:
+  - questID: 0
+    questTitle: Find Students!
+    questTasks:
+    - Hello
+    - Bye
+    - Test
+    questState: 0
+    atTask: 0
   sideQuests: []
   _progression: {fileID: 0}
   _stats: {fileID: 0}
@@ -140,3 +150,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayHints: 0
+  displayHotkeys: 0
+  BGMVolume: 0
+  SFXVolume: 0
+  MasterVolume: 0
+--- !u!114 &114865731012516700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011287304802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874a4a2a51338e94aabe7e56dcd70f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  gameManager: {fileID: 0}
+  statMan: {fileID: 0}
+  progMan: {fileID: 0}
+  optionMan: {fileID: 0}
