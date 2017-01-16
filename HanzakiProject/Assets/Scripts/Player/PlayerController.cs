@@ -186,10 +186,8 @@ public class PlayerController : MonoBehaviour
                 {
                     walkTowards = new Vector3(transform.position.x + Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z + Input.GetAxisRaw("Vertical"));
                 }
-                
             }
         }
-        
     }
 
 

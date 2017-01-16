@@ -156,6 +156,7 @@ public class EnemyMovement : MonoBehaviour
 
     void AttackAnimation()
     {
+        print("Attack");
         if (Physics.Raycast(transform.position, transform.forward, out hit, rayDis))
         {
             if (hit.transform.tag == "Player")
