@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: ccd87b198c9c80d498fc08a0b3d303d0
+guid: f67a1475d0fc4ad45b5dfcb98160fa31
+timeCreated: 1484579394
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -7,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box001
+    4300000: school desk 2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
