@@ -33,13 +33,18 @@ public class XmlManager {
     [XmlElement("DisplayHotkeys")]
     public bool displayHotkeys;
 
+    [XmlElement("QuestKappa1")]
+    public GameObject questkappa1;
 
+    [XmlElement("QuestKappa2")]
+    public GameObject questkappa2;
 
     public XmlManager()
     {
 
     }
-    public XmlManager(int points, int shuriken, Vector3 playerPosition, int questProg, bool grappHook, bool bombUnlocked, bool shurikenUnlocked, bool katanaUnlocked, bool disHotKeys)
+
+    public XmlManager(int points, int shuriken, Vector3 playerPosition, int questProg, bool grappHook, bool bombUnlocked, bool shurikenUnlocked, bool katanaUnlocked, bool disHotKeys, GameObject questkap1, GameObject questKap2)
     {
         savePoint = points;
         shurikenCount = shuriken;
@@ -49,6 +54,8 @@ public class XmlManager {
         smokeBomb = bombUnlocked;
         shurikenBool = shurikenUnlocked;
         katana = katanaUnlocked;
-        displayHotkeys = disHotKeys; 
+        displayHotkeys = disHotKeys;
+        questkappa1 = questkap1;
+        questkappa2 = questKap2;
     }
 }
