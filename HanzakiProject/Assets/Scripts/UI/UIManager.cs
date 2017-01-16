@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour {
 
     float storeSFXVolume;
 
-    public Image bloodOverlay;
+    public RedOverlayFadeOut bloodOverlay;
 
 
 	
@@ -136,9 +136,9 @@ public class UIManager : MonoBehaviour {
         _sound.PlayOneShot(closeMenu);
     }
 
-    void BloodOverlayEffect()
+    public void BloodOverlayEffect()
     {
-        bloodOverlay.color = new Color(1, 1, 1, 0.5f);
+        bloodOverlay.Activate();
     }
 
     void SetSkillIcon()
