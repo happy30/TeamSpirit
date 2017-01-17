@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HanzakiProject/Assets/Art/Shared/Trees/ENV_FLTR/3D_ENV_MODL_FLTR.fbm.meta
+guid: e459080c8340c1142b1c6b0c1e931bf6
+folderAsset: yes
+timeCreated: 1484650418
+=======
 guid: 19a9c470b95482c46a28987b869a8502
 folderAsset: yes
 timeCreated: 1484644076
+>>>>>>> be42683218188e86538601b6643eb37dd07c6adf:HanzakiProject/Assets/Art/Shared/Trees/ENV_FLTR/3D_ENV_MODL_FLTR.fbm.meta
 licenseType: Free
 DefaultImporter:
   userData: 
