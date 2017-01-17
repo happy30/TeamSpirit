@@ -58,7 +58,7 @@ public class EnemySight : MonoBehaviour
         }
     }
 	
-    void OnTriggerStay(Collider trigger)
+    void OnTriggerEnter(Collider trigger)
     {
         if(trigger.transform.tag == "Player")
         {
