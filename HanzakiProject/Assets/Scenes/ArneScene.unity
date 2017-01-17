@@ -405,7 +405,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199612433}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b4d9798503e09645859ab18e76dc6e4, type: 3}
   m_Name: 
@@ -512,6 +512,7 @@ MonoBehaviour:
   camTransform: {fileID: 241294216}
   kartNumber: {fileID: 199612437}
   distance: 10
+  maxDistance: 10
   height: 5
   followSpeed: 8
 --- !u!1 &313019549
@@ -766,7 +767,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 633943834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.04, y: -0.36, z: 7.19}
+  m_LocalPosition: {x: 16.04, y: -2.12, z: 7.19}
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}

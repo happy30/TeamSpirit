@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: afebef4f97e0aeb48b20432fd61e83cd
-timeCreated: 1484577306
-licenseType: Free
+guid: 5e5aa44d18671cf44814acb95973c65a
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -12,7 +10,7 @@ ModelImporter:
     4300000: Touw
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -35,7 +33,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
