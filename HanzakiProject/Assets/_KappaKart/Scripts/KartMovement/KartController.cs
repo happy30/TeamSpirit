@@ -95,7 +95,7 @@ public class KartController : MonoBehaviour
         {
             CheckFloor(hit);
         }
-
+        print("test");
         // Front Back
         if (aButton)
         {
