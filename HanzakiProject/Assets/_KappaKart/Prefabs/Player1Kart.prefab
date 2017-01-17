@@ -275,7 +275,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ce8f5dbe7da1b82448be699dc07ce350, type: 2}
+  - {fileID: 2100000, guid: d93c4f791d94dde43be35709c70ce85b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -496,9 +496,9 @@ MonoBehaviour:
   hoverHeight: 6
   hoverForce: 5
   hoverDamp: 0.5
-  verticalSpeed: Kart2VerticalSpeed
-  horizontalRot: Kart2HorizontalRot
-  gasButton: AButton2
-  reverseButton: BButton2
+  verticalSpeed: Kart1VerticalSpeed
+  horizontalRot: Kart1HorizontalRot
+  gasButton: AButton1
+  reverseButton: BButton1
   rayDis: 1
   materialArray: []
