@@ -51,6 +51,9 @@ public class PlayerController : MonoBehaviour
     public Material playerMat;
 
     public Vector3 playerRotation;
+    public float movementTimer;
+    public float movementTime;
+    public bool canMove;
 
     //Combat
     public bool invulnerable;
@@ -62,6 +65,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip smokeBombSound;
 
     public float jumpCD;
+
+    public GameObject DashParticle;
+    GameObject spawnedDashParticle;
 
     /*
     float lastTapFwdTime = 0;  // the time of the last tap that occurred
@@ -99,16 +105,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ChangeControlsDependingOnLevelType();
+        canMove = true;
     }
 	
 	void Update ()
     {
-        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile)
+        CanMove();
+        if(!Camera.main.GetComponent<CameraController>().inCutscene && !onSlipperyTile && canMove)
         {
             SetMovement();
             Move();
-            //CheckForDash();
-            //CheckForDash2();
             CheckForDash3();
         }
         else if(Camera.main.GetComponent<CameraController>().inCutscene)
@@ -136,6 +142,21 @@ public class PlayerController : MonoBehaviour
         else if (levelType == LevelType.TD)
         {
             InputManager.Jump = InputManager.JumpTD;
+        }
+    }
+
+
+    void CanMove()
+    {
+        if(!canMove)
+        {
+            movementTimer += Time.deltaTime;
+            if(movementTimer > movementTime)
+            {
+                canMove = true;
+                movementTimer = 0;
+                movementTime = 0;
+            }
         }
     }
 
@@ -186,11 +207,13 @@ public class PlayerController : MonoBehaviour
                 {
                     walkTowards = new Vector3(transform.position.x + Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z + Input.GetAxisRaw("Vertical"));
                 }
+                
             }
         }
+        
     }
 
-
+    // 3rd attempt in a functional dash for gamepad
     void CheckForDash3()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -227,11 +250,26 @@ public class PlayerController : MonoBehaviour
                     tapTimer -= Time.deltaTime;
                     if(angle < lastDirection + 30 && angle > lastDirection - 30 && nogeen)
                     {
-                        Dash(dashSpeed);
-                        dashCooldown = 2f;
-                        ui.UseSkill(4);
-                        hasTapped = false;
-                        tapTimer = 0;
+                        if(angle == 0)
+                        {
+                            if(xvertical != 0)
+                            {
+                                Dash(dashSpeed);
+                                dashCooldown = 2f;
+                                ui.UseSkill(4);
+                                hasTapped = false;
+                                tapTimer = 0;
+                            }
+                        }
+                        else
+                        {
+                            Dash(dashSpeed);
+                            dashCooldown = 2f;
+                            ui.UseSkill(4);
+                            hasTapped = false;
+                            tapTimer = 0;
+                        }
+                        
                     }
                 }
                 else
@@ -311,11 +349,14 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(float distance)
     {
+        spawnedDashParticle = (GameObject)Instantiate(DashParticle, transform.position, Quaternion.identity);
+        spawnedDashParticle.transform.SetParent(transform);
+        Destroy(spawnedDashParticle, 0.3f);
         _rb.velocity = new Vector3(playerModel.transform.forward.x * distance, 0, playerModel.transform.forward.z * distance);
     }
     public void Dash(float distance, float height)
     {
-        _rb.velocity = playerModel.transform.forward * distance + new Vector3(0, height, 0);
+        _rb.velocity = new Vector3(distance, height, 0);
     }
 
     //Move the player and let it jump
@@ -473,7 +514,8 @@ public class PlayerController : MonoBehaviour
     {
         _rb.velocity = new Vector3(0, jumpHeight, 0);
         anim.SetBool("Jump", true);
-        jumpCD = 0.7f;
+        anim.SetBool("Walking", false);
+        jumpCD = 0.85f;
     }
 
     public bool CheckIfJumping()
@@ -525,13 +567,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void GetHit(int damage)
+    public void GetHit(int damage, Transform hitter)
     {
         if(!invulnerable)
         {
             stats.health -= damage;
             GameObject.Find("Canvas").GetComponent<HeartScript>().DrawHearts();
-            Dash(-10f, 4);
+            if(hitter.position.x > transform.position.x)
+            {
+                Dash(-10f, 4);
+            }
+            else
+            {
+                Dash(10f, 4);
+            }
+            
+            ui.BloodOverlayEffect();
         }
     }
 
@@ -539,6 +590,12 @@ public class PlayerController : MonoBehaviour
     {
         invulnerable = true;
     }
+
+    public void Die()
+    {
+        //restart to checkpoint;
+    }
+
 
     void OnTriggerStay(Collider col)
     {
@@ -588,6 +645,14 @@ public class PlayerController : MonoBehaviour
                 
     }
 
+
+    public void StopMovement (float time)
+    {
+        canMove = false;
+        movementTime = time;
+    }
+
+
     void OnCollisionEnter(Collision col)
     {
         if(col.collider.tag == "Ground")
@@ -601,3 +666,4 @@ public class PlayerController : MonoBehaviour
         ui.RemoveInteractText();
     }
 }
+
