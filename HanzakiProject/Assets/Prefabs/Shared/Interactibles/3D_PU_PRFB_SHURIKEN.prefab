@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368358081038338}
   m_LocalRotation: {x: 0.772849, y: 0.592909, z: -0.1314167, w: 0.18410063}
-  m_LocalPosition: {x: -85.306946, y: 142.029, z: -55.48465}
+  m_LocalPosition: {x: -65.692505, y: 142.534, z: -67.9156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4260478111569632}
@@ -247,14 +247,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264017465212338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.8660254, z: -0, w: -0.5}
   m_LocalPosition: {x: 0.082, y: -0.013, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4360374132885136}
   m_Father: {fileID: 4749565595362480}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 240, z: 0}
 --- !u!23 &23068813574231794
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -492,7 +492,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1692161498
+  randomSeed: 792810476
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3088,8 +3088,8 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ea3b58a61aa2254a9825997cb875cc8, type: 2}
-  - {fileID: 2100000, guid: 2ea3b58a61aa2254a9825997cb875cc8, type: 2}
+  - {fileID: 2100000, guid: 72db6b57fecff034caa6f423ecb39c49, type: 2}
+  - {fileID: 2100000, guid: 72db6b57fecff034caa6f423ecb39c49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
