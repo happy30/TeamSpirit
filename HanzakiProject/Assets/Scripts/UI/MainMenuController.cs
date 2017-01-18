@@ -16,6 +16,7 @@ public class MainMenuController : MonoBehaviour
 
     public MainMenuScroll scrollScript;
     public GameObject scroll;
+    public SpriteRenderer kappaKartSprite;
 
     public RectTransform optionsPanel;
     public float optionsSlideTime;
@@ -30,6 +31,7 @@ public class MainMenuController : MonoBehaviour
     public RectTransform cursorArrow;
     public float arrowSpeed;
     public float yPosArrow;
+    public float xPosArrow;
 
     public bool scrollActivated;
     public bool optionsScrollActivated;
@@ -51,6 +53,9 @@ public class MainMenuController : MonoBehaviour
     public AudioClip buttonHover;
     public AudioClip openMenu;
 
+    public float KappaKartX;
+    public Transform KappaKartButton;
+
 
 
     public enum CursorAt
@@ -58,7 +63,8 @@ public class MainMenuController : MonoBehaviour
         NewGame,
         Continue,
         Options,
-        Exit
+        Exit,
+        KappaKart
     };
 
     public CursorAt cursorAt;
@@ -77,6 +83,7 @@ public class MainMenuController : MonoBehaviour
         cursorArrow.gameObject.SetActive(false);
         optionsLocationX = 1920;
         scrollLocationX = scroll.transform.position.x;
+        kappaKartSprite.color = new Color(1, 1, 1, 0);
 
         if (continueUnlocked)
         {
@@ -91,7 +98,8 @@ public class MainMenuController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(cursorArrow.gameObject.activeSelf)
+        
+        if (cursorArrow.gameObject.activeSelf)
         {
             if (Input.GetAxisRaw("Vertical") != 0)
             {
@@ -106,6 +114,18 @@ public class MainMenuController : MonoBehaviour
                     SetCursorPosition((int)cursorAt - 1, false);
                 }
             }
+            if(Input.GetAxisRaw("Horizontal") != 0)
+            {
+                if(Input.GetAxisRaw("Horizontal") < 0 && cursorAt == CursorAt.NewGame)
+                {
+                    cursorAt = CursorAt.KappaKart;
+                }
+                else if(Input.GetAxisRaw("Horizontal") > 0 && cursorAt == CursorAt.KappaKart)
+                {
+                    cursorAt = CursorAt.NewGame;
+                }
+            }
+
 
             if(Input.GetAxisRaw("Vertical") == 0)
             {
@@ -116,21 +136,35 @@ public class MainMenuController : MonoBehaviour
             if (cursorAt == CursorAt.NewGame)
             {
                 yPosArrow = buttons[0].anchoredPosition.y;
+                xPosArrow = buttons[0].anchoredPosition.x;
+                KappaKartX = 9;
             }
             else if (cursorAt == CursorAt.Continue)
             {
                 yPosArrow = buttons[1].anchoredPosition.y;
+                xPosArrow = buttons[1].anchoredPosition.x;
+                KappaKartX = 18;
             }
             else if (cursorAt == CursorAt.Options)
             {
                 yPosArrow = buttons[2].anchoredPosition.y;
+                xPosArrow = buttons[2].anchoredPosition.x;
+                KappaKartX = 18;
             }
             else if (cursorAt == CursorAt.Exit)
             {
                 yPosArrow = buttons[3].anchoredPosition.y;
+                xPosArrow = buttons[3].anchoredPosition.x;
+                KappaKartX = 18;
             }
-
-            cursorArrow.anchoredPosition = Vector2.Lerp(cursorArrow.anchoredPosition, new Vector2(cursorArrow.anchoredPosition.x, yPosArrow), arrowSpeed * Time.deltaTime);
+            else if(cursorAt == CursorAt.KappaKart)
+            {
+                xPosArrow = buttons[4].anchoredPosition.x;
+            }
+            kappaKartSprite.color = new Color(1, 1, 1, 1);
+            KappaKartButton.localPosition = Vector3.Lerp(KappaKartButton.localPosition, new Vector3(KappaKartX, KappaKartButton.localPosition.y, KappaKartButton.localPosition.z), 10f * Time.deltaTime);
+            cursorArrow.anchoredPosition = Vector2.Lerp(cursorArrow.anchoredPosition, new Vector2(xPosArrow, yPosArrow), arrowSpeed * Time.deltaTime);
+           
         }
         else
         {
@@ -148,6 +182,13 @@ public class MainMenuController : MonoBehaviour
             if(cursorAt == CursorAt.NewGame)
             {
                 NewGame();
+                Invoke("InitiateFade", 1f);
+                Invoke("LoadNextScene", 2.5f);
+                cursorArrow.gameObject.SetActive(false);
+            }
+            else if (cursorAt == CursorAt.KappaKart)
+            {
+                NewKappaKartGame();
                 Invoke("InitiateFade", 1f);
                 Invoke("LoadNextScene", 2.5f);
                 cursorArrow.gameObject.SetActive(false);
@@ -235,6 +276,18 @@ public class MainMenuController : MonoBehaviour
         if (continueUnlocked)
         {
             
+        }
+        else
+        {
+            scrollScript.scroll.GetComponent<Renderer>().material.mainTexture = continueLockedTextureAlpha2;
+            scrollScript.scrollObject.GetComponent<Animator>().SetBool("BurnScroll", true);
+        }
+    }
+    public void NewKappaKartGame()
+    {
+        if (continueUnlocked)
+        {
+
         }
         else
         {
