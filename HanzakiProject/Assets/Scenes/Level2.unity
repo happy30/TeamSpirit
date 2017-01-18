@@ -11192,6 +11192,8 @@ MonoBehaviour:
   followObject: {fileID: 0}
   hookObject: {fileID: 0}
   cutsceneZ: 0
+  restrictXp: 0
+  restrictXn: 0
   cameraRot: {x: 0, y: 0, z: 0}
 --- !u!81 &432148689
 AudioListener:
@@ -22970,7 +22972,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400004, guid: dda04de98b7b5af4cb538e09a8ef1593, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 895514334}
-  m_LocalRotation: {x: -0.020717628, y: -0.70680326, z: 0.70680314, w: -0.020717777}
+  m_LocalRotation: {x: -0.02071763, y: -0.7068033, z: 0.7068032, w: -0.02071778}
   m_LocalPosition: {x: -32.050003, y: -10.770004, z: 26.179993}
   m_LocalScale: {x: 4.9605327, y: 4.383503, z: 7.940572}
   m_Children: []
@@ -36768,7 +36770,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 76940568defe8d449bd7dff847ff8a93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -171.82251
+      value: -171.44
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 76940568defe8d449bd7dff847ff8a93, type: 3}
       propertyPath: m_LocalPosition.y

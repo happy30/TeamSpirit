@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainQuests:
   - questID: 0
-    questTitle: Find out where the students are.
+    questTitle: Find the missing students.
     questTasks:
     - Explore the School
     - Create the Grappling Hook
@@ -68,14 +68,22 @@ MonoBehaviour:
     - Go to the Forest
     questState: 1
     atTask: 0
-  - questID: 0
-    questTitle: 
-    questTasks: []
-    questState: 0
+  - questID: 1
+    questTitle: Find the missing students.
+    questTasks:
+    - Search the area
+    - Find the cave
+    - Escape the cave
+    - Continue the search
+    - Escape the kappa
+    questState: 1
     atTask: 0
-  - questID: 0
-    questTitle: 
-    questTasks: []
+  - questID: 2
+    questTitle: Find the missing students.
+    questTasks:
+    - Investigate the cave
+    - Eliminate the leader
+    - Find out where the students are
     questState: 0
     atTask: 0
   - questID: 0
