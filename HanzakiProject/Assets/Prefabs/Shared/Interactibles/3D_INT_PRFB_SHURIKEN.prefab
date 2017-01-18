@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 65000011431405220}
   m_Layer: 0
   m_Name: 3D_INT_PRFB_SHURIKEN
-  m_TagString: Untagged
+  m_TagString: Shuriken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
