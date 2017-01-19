@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HanzakiProject/Assets/_KappaKart/Models/Materials.meta
 guid: 1729f40530888a94ea7b77575c82de3b
 folderAsset: yes
 timeCreated: 1484825791
+=======
+guid: 1d42cb49aff21f64989e59d37b9fc689
+folderAsset: yes
+timeCreated: 1484822631
+>>>>>>> 40a6b6671d6b68992bdeff61cbfca3a4d06becde:HanzakiProject/Assets/_KappaKart/Models/Materials.meta
 licenseType: Free
 DefaultImporter:
   userData: 
