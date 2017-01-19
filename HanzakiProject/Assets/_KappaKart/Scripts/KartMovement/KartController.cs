@@ -11,6 +11,7 @@ public class KartController : MonoBehaviour
     public bool raceStarted;
     public int nextCheckPoint;
     public int playerPos;
+    public int currentLap;
    // public GameObject otherPlayer;
 
     public float speed;
@@ -39,7 +40,6 @@ public class KartController : MonoBehaviour
     public Texture[] materialArray;
 
     private Rigidbody _rb;
-
 
     void Start()
     {
@@ -181,7 +181,6 @@ public class KartController : MonoBehaviour
     {
 
     }
-
 }
 
 

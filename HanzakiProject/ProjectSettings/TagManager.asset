@@ -17,6 +17,7 @@ TagManager:
   - ItemBox
   - Boost
   - OffRoad
+  - PlayerKart
   layers:
   - Default
   - TransparentFX

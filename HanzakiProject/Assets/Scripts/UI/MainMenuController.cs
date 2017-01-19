@@ -125,14 +125,10 @@ public class MainMenuController : MonoBehaviour
                     cursorAt = CursorAt.NewGame;
                 }
             }
-
-
             if(Input.GetAxisRaw("Vertical") == 0)
             {
                 vAxisInUse = false;
             }
-
-
             if (cursorAt == CursorAt.NewGame)
             {
                 yPosArrow = buttons[0].anchoredPosition.y;
