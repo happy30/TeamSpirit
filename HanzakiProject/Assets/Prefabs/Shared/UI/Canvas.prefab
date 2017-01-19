@@ -1472,6 +1472,7 @@ GameObject:
   - component: {fileID: 224710870234210874}
   - component: {fileID: 222555299247645958}
   - component: {fileID: 114320814087460588}
+  - component: {fileID: 114741621641821610}
   m_Layer: 5
   m_Name: HitOverlay
   m_TagString: Untagged
@@ -2577,7 +2578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2975,7 +2976,7 @@ MonoBehaviour:
   - {fileID: 114000011233804400}
   - {fileID: 114000013262484242}
   player: {fileID: 0}
-  bloodOverlay: {fileID: 114320814087460588}
+  bloodOverlay: {fileID: 114741621641821610}
 --- !u!114 &114000011893921100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3532,7 +3533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4401,7 +4402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.204}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4416,6 +4417,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114741621641821610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175230663902828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4670539da4b76224b959a0b7ee824bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0
 --- !u!222 &222000010165806646
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -6117,7 +6130,7 @@ RectTransform:
   - {fileID: 224000013978344814}
   - {fileID: 224000011690945908}
   m_Father: {fileID: 224000013959584190}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6234,7 +6247,7 @@ RectTransform:
   - {fileID: 224000013972184300}
   - {fileID: 224000012987299972}
   m_Father: {fileID: 224000013959584190}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -6252,7 +6265,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224000013959584190}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6364,13 +6377,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 224000013486590266}
   - {fileID: 224000013418615958}
+  - {fileID: 224000013486590266}
   - {fileID: 224000010296936264}
   - {fileID: 224000010956693676}
   - {fileID: 224000012525715416}
-  - {fileID: 224000013084134424}
   - {fileID: 224000014102883750}
+  - {fileID: 224000013084134424}
   - {fileID: 224000013848693500}
   - {fileID: 224000011186197794}
   - {fileID: 224710870234210874}
@@ -6473,7 +6486,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000013651112388}
   m_Father: {fileID: 224000013959584190}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

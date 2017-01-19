@@ -37,6 +37,9 @@ public class CameraController : MonoBehaviour
 
     public float cutsceneZ;
 
+    public float restrictXp;
+    public float restrictXn;
+
     public Vector3 cameraRot;
     Vector3 cameraPos;
 
@@ -62,7 +65,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            cameraOffsetY = 1;
+            cameraOffsetY = 2;
             //transform.eulerAngles = new Vector3(0, 0, 0);
             cameraRot = new Vector3(0, player.GetComponent<PlayerController>().rotationOffset, 0);
         }
@@ -73,7 +76,11 @@ public class CameraController : MonoBehaviour
     {
         if(!inCutscene)
         {
-            FollowPlayer();
+            if(player.transform.position.x > restrictXn && player.transform.position.x < restrictXp)
+            {
+                FollowPlayer();
+            }
+            
         }
         else
         {

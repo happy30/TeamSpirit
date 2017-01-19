@@ -50,6 +50,14 @@ public class EnemyMovement : MonoBehaviour
     public GameObject deathParticle;
     GameObject spawnedDeathparticle;
 
+    public enum EnemyType
+    {
+        BabyKappa,
+        NormalKappa
+    };
+
+    public EnemyType enemyType;
+
 
 
     void Awake()
@@ -247,6 +255,31 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void GetHit(int damageGet)
+    {
+        if(enemyType == EnemyType.BabyKappa)
+        {
+            agent.enabled = false;
+            Invoke("EnableAgent", 0.5f);
+            health -= damageGet;
+            Knockback();
+            if (health <= 0)
+            {
+                Invoke("SpawnDeathParticle", 1f);
+                anim.SetBool("Death", true);
+                GetComponent<EnemyMovement>().isAlive = false;
+                if (spawnedHealthSprite != null)
+                {
+                    Destroy(spawnedHealthSprite);
+                }
+            }
+            else
+            {
+                UpdatedHealth();
+            }
+        }
+    }
+
+    public void GetHitByShuriken(int damageGet)
     {
         agent.enabled = false;
         Invoke("EnableAgent", 0.5f);
