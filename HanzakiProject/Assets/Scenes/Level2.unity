@@ -11192,8 +11192,8 @@ MonoBehaviour:
   followObject: {fileID: 0}
   hookObject: {fileID: 0}
   cutsceneZ: 0
-  restrictXp: 0
-  restrictXn: 0
+  restrictXp: 500
+  restrictXn: -500
   cameraRot: {x: 0, y: 0, z: 0}
 --- !u!81 &432148689
 AudioListener:
