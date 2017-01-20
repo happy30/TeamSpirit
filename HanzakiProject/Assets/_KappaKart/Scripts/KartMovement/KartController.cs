@@ -56,7 +56,10 @@ public class KartController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        VehicleMove();
+        if (raceStarted)
+        {
+            VehicleMove();
+        }
 
         RaycastHit hit;
         if (!Physics.Raycast(transform.position, -transform.up, out hit, 1.5f))
