@@ -30,7 +30,7 @@ public class CutsceneController : MonoBehaviour
     public string displayLine;
     public bool activated;
 
-    int currentText;
+    public int currentText;
     int currentChar;
 
     float scrollSpeed;
@@ -55,6 +55,10 @@ public class CutsceneController : MonoBehaviour
         {
             if (displayLine != fullDialogueLine)
             {
+                if (npcName != "")
+                {
+                    ui.Speech();
+                }
                 if (!IsInvoking("NextChar"))
                 {
                     Invoke("NextChar", scrollSpeed);

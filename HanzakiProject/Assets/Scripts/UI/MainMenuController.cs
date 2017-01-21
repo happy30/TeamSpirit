@@ -186,7 +186,7 @@ public class MainMenuController : MonoBehaviour
             {
                 NewKappaKartGame();
                 Invoke("InitiateFade", 1f);
-                Invoke("LoadNextScene", 2.5f);
+                Invoke("LoadKappaKart", 2.5f);
                 cursorArrow.gameObject.SetActive(false);
             }
             else if(cursorAt == CursorAt.Options)
@@ -312,7 +312,12 @@ public class MainMenuController : MonoBehaviour
 
     public void LoadNextScene()
     {
-        _load.LoadScene("Level1");
+        _load.LoadScene("IntroCutsceneScene");
+    }
+
+    public void LoadKappaKart()
+    {
+        _load.LoadScene("KappaKartTerrain");
     }
 
 

@@ -26,6 +26,7 @@ public class Shuriken : MonoBehaviour {
         stats = GameObject.Find("GameManager").GetComponent<StatsManager>();
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         player = GetComponent<PlayerController>();
+        sound = GetComponent<AudioSource>();
     }
 
 	
