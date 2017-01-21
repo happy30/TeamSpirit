@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Made by Alieke
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,9 @@ public class KartUIManager : MonoBehaviour {
 
     public Text player1EndScore;
     public Text player2EndScore;
+
+    public Image _1stPlaceSpr;
+    public Image _2ndPlaceSpr;
 
     public void DrawRanks()
     {

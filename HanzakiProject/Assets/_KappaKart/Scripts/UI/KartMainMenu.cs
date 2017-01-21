@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Made by Alieke
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,7 @@ public class KartMainMenu : MonoBehaviour
 
     public GameObject menuPanel;
     public GameObject hudPanel;
+    public GameObject rankPanel;
 
     private bool gameStarted;
     bool aButton;
@@ -36,8 +38,11 @@ public class KartMainMenu : MonoBehaviour
     LoadController _load;
     KartGameManager _GameManager;
 
+    Animator _anim;
+
     void Awake()
     {
+        _anim = blackScreen.GetComponent<Animator>();
         arrowPos = ArrowPos.NewGame;
         _load = GetComponent<LoadController>();
         _GameManager = GetComponent<KartGameManager>();
@@ -66,40 +71,39 @@ public class KartMainMenu : MonoBehaviour
 
         arrow.anchoredPosition = Vector2.Lerp(arrow.anchoredPosition, new Vector2(arrow.anchoredPosition.x, yPos), arrowSpeed * Time.deltaTime);
 
-        if(arrowPos == ArrowPos.NewGame)
+        if (!_GameManager.raceStart)
         {
-            aButton = Input.GetButton("AButton1");
-            if (aButton)
+            if (arrowPos == ArrowPos.NewGame)
             {
-                Invoke("FadeScreen", 0.5f);
-                Invoke("StartGame", 2.5f);
-                Invoke("FadeScreenOff", 3f);
-                Invoke("StartCounting", 6f);
+                aButton = Input.GetButton("AButton1");
+                if (aButton)
+                {
+                    Invoke("FadeScreen", 0.5f);
+                    Invoke("StartGame", 1f);
+                    Invoke("FadeScreenOff", 2f);
+                    Invoke("StartCounting", 4f);
+                }
             }
-        }
-        if(arrowPos == ArrowPos.Back){
-            Invoke("FadeScreen", 1f);
-            Invoke("QuitGame", 2.5f);
-        }
-        if (fadeScreen)
-        {
-            fadeValue += 3f * Time.deltaTime;
-            blackScreen.GetComponent<Image>().color = new Color(blackScreen.GetComponent<Image>().color.r, blackScreen.GetComponent<Image>().color.g, blackScreen.GetComponent<Image>().color.b, fadeValue / 0.8f);
-        }
-        else
-        {
-            fadeValue -= 3f * Time.deltaTime;
-            blackScreen.GetComponent<Image>().color = new Color(blackScreen.GetComponent<Image>().color.r, blackScreen.GetComponent<Image>().color.g, blackScreen.GetComponent<Image>().color.b, fadeValue / 0.8f);
+            if (arrowPos == ArrowPos.Back)
+            {
+                aButton = Input.GetButton("AButton1");
+                if (aButton)
+                {
+                    Invoke("FadeScreen", 1f);
+                    Invoke("QuitGame", 2.5f);
+                }
+            }
         }
     }
 
     public void FadeScreen()
     {
-        fadeScreen = true;
+        menuPanel.SetActive(false);
+        _anim.SetBool("Fade", true);
     }
     public void FadeScreenOff()
     {
-        fadeScreen = false;       
+        _anim.SetBool("Fade", false);
     }
 
     public void StartCounting()
@@ -108,12 +112,12 @@ public class KartMainMenu : MonoBehaviour
     }
 
     public void StartGame()
-    {   
-        menuCam.gameObject.SetActive(false);
+    {         
+        rankPanel.SetActive(false);
         player1Cam.SetActive(true);
-        player2Cam.SetActive(true);       
+        player2Cam.SetActive(true);
+        menuCam.gameObject.SetActive(false);
         hudPanel.SetActive(true);
-        menuPanel.SetActive(false);
     }
 
     public void QuitGame()
