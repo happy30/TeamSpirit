@@ -26,4 +26,21 @@ public class SlashScript : MonoBehaviour {
     {
         player.playerController.Dash(10f);
     }
+
+    public void Step(int left)
+    {
+        if(left == 0)
+        {
+            player.playerController.Step(false);
+        }
+        else
+        {
+            player.playerController.Step(true);
+        }
+    }
+
+    public void Land()
+    {
+        player.playerController.Land();
+    }
 }

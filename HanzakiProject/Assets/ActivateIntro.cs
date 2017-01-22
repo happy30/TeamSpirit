@@ -9,12 +9,13 @@ public class ActivateIntro : MonoBehaviour {
     public CutsceneController controller;
     public float alpha;
 
+    public int fadeOutMessageCounter;
+
 	// Use this for initialization
 	void Start ()
     {
         GameObject.Find("Canvas").GetComponent<UIManager>().EnterCutscene();
-        controller = GetComponent<CutsceneController>();
-        GetComponent<CutsceneController>().Activate();
+        controller.Activate();
         alpha = 1;
         overlay.color = new Color(0, 0, 0, 1);
         
@@ -23,21 +24,33 @@ public class ActivateIntro : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(controller.currentText > 3)
+        if (controller != null)
         {
-            if(overlay.color.a > 0)
+            if (controller.currentText > fadeOutMessageCounter)
             {
-                alpha -= Time.deltaTime * 0.3f;
+                if (overlay.color.a > 0)
+                {
+                    alpha -= Time.deltaTime * 0.3f;
+                }
+            }
+
+            overlay.color = new Color(0, 0, 0, alpha);
+
+            if (controller.currentText > 13)
+            {
+                GameObject.Find("Canvas").GetComponent<LoadController>().LoadScene("Level1");
+                controller.currentText = 0;
+            }
+        }
+        else
+        {
+                if (overlay.color.a > 0)
+                {
+                    alpha -= Time.deltaTime * 0.3f;
+                overlay.color = new Color(0, 0, 0, alpha);
             }
         }
 
-        overlay.color = new Color(0, 0, 0, alpha);
-
-        if(controller.currentText > 6)
-        {
-            GameObject.Find("Canvas").GetComponent<LoadController>().LoadScene("Level1");
-            controller.currentText = 0;
-        }
 
     }
 }

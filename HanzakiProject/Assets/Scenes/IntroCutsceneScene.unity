@@ -1301,12 +1301,20 @@ MonoBehaviour:
   progressionManager: {fileID: 0}
   npcName: ???
   CutsceneText:
-  - It seemed like it was a normal day
-  - Except something terrible was about to happen
-  - This is the story of our ninja
-  - As usual, our ninja arrived too late at school. It was already sunset.
-  - But what was going to be an usual day at school, was no more.
-  - As the whole school had been destroyed. What could've happened?
+  - Have you heard the story?
+  - Of the Kappa in the swamps?
+  - It is said that if you are a disobient child, they come and take you away.
+  - 'No one knows where they take you, or what they do. '
+  - But one thing that is always certain is that you never ever return.
+  - Of course these are just stories that parent tell their kids.
+  - But what...
+  - If those stories are more than fiction?
+  - What if I told you that the Kappa are already moving in on you as I speak?
+  - What would you do? Would you run? Would you hide? Or would you fight?
+  - But first you should wake up, because you are already late for school.
+  - '...'
+  - Oh, and the Kappa are also perverts...
+  - '....'
   - '....'
   secondCutsceneText: []
   fullLines: []
@@ -1338,8 +1346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlay: {fileID: 1150402987}
-  controller: {fileID: 0}
+  controller: {fileID: 1107428887}
   alpha: 0
+  fadeOutMessageCounter: 0
 --- !u!1 &1109766867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,7 +2643,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6a1d02c2c88bb5a42a3d301e45780dee, type: 2}
+  - {fileID: 2100000, guid: 070744722e840234487ef6fda94d1f46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

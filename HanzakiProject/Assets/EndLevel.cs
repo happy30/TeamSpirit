@@ -19,6 +19,7 @@ public class EndLevel : MonoBehaviour
 
     void LoadNextScene()
     {
-        GameObject.Find("GameManager").GetComponent<LoadController>().LoadScene(levelToLoad);
+        GameObject.Find("GameManager").GetComponent<QuestManager>().CompleteMainQuest();
+        GameObject.Find("Canvas").GetComponent<LoadController>().LoadScene(levelToLoad);
     }
 }

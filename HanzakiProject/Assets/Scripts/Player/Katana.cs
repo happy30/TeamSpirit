@@ -23,10 +23,16 @@ public class Katana : MonoBehaviour
 
     AudioSource sound;
     public AudioClip swing;
+    public AudioClip hitEnemy;
+    public AudioClip hitDestructable;
 
     public Animator anim;
 
     public UIManager ui;
+    public GameObject slashTrail;
+
+    public GameObject hitParticle;
+    GameObject spawnedhitParticle;
 
     void Awake()
     {
@@ -63,6 +69,8 @@ public class Katana : MonoBehaviour
 
     public void Slash(int attackMultiplier)
     {
+        slashTrail.SetActive(true);
+        Invoke("DeactivateTrail", 0.2f);
         sound.PlayOneShot(swing);
         playerController.anim.SetBool("Attack", false);
         RaycastHit hit;
@@ -71,8 +79,13 @@ public class Katana : MonoBehaviour
             print(hit.transform.tag);
             if(hit.collider.tag == "Enemy")
             {
+                sound.PlayOneShot(hitEnemy, 0.2f);
                 SlashedObject = hit.collider.gameObject;
                 hit.collider.transform.parent.GetComponent<EnemyMovement>().GetHit(attackPower);
+
+                spawnedhitParticle = (GameObject)Instantiate(hitParticle, slashTrail.transform.position, Quaternion.identity);
+                Destroy(spawnedhitParticle, 1f);
+
                 /*
                 if (SlashedObject.GetComponent<EnemyMovement>() != null)
                 {
@@ -87,6 +100,7 @@ public class Katana : MonoBehaviour
 
             else if (hit.collider.tag == "Destructible" && swordType == SwordType.Katana)
             {
+                sound.PlayOneShot(hitDestructable, 1f);
                 hit.collider.gameObject.GetComponent<DestructibleScript>().DestroyObject();
             }
         }
@@ -102,6 +116,11 @@ public class Katana : MonoBehaviour
         swordType = SwordType.Katana;
         GameObject.FindWithTag("Katana").GetComponent<Renderer>().material = katanaMaterial;
         attackPower = 2;
+    }
+
+    public void DeactivateTrail()
+    {
+        slashTrail.SetActive(false);
     }
 
 }

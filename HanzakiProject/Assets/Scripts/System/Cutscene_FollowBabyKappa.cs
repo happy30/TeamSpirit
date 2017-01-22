@@ -8,6 +8,6 @@ public class Cutscene_FollowBabyKappa : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //transform.position = new Vector3(babyKappa.transform.position.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(babyKappa.transform.position.x, transform.position.y, transform.position.z);
 	}
 }
