@@ -21,9 +21,11 @@ GameObject:
   - component: {fileID: 4000012189090758}
   - component: {fileID: 33000011454481466}
   - component: {fileID: 23000012410119054}
+  - component: {fileID: 65441906441241408}
+  - component: {fileID: 114396660238964016}
   m_Layer: 0
   m_Name: 3D_ENV_PRFB_STONE
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,9 +36,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010773523308}
-  m_LocalRotation: {x: -0.1590449, y: 0, z: -0, w: 0.98727137}
-  m_LocalPosition: {x: -42.023, y: -1.7249389, z: 5.518906}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -78.660706, y: 142.02129, z: -39.33426}
+  m_LocalScale: {x: 3.4517636, y: 3.451764, z: 3.451764}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,3 +81,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010773523308}
   m_Mesh: {fileID: 4300000, guid: 1a51762bea9bb6a4c99df74a5f8dba86, type: 3}
+--- !u!65 &65441906441241408
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010773523308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.86241305, y: 0.846792, z: 0.8226925}
+  m_Center: {x: 0.005048409, y: 0.0090620965, z: 0.011346249}
+--- !u!114 &114396660238964016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010773523308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d650620e7329be4091229710ab43ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleObject: {fileID: 1000011605007380, guid: d85a4b75537d4ef4d9f7de29ddb85630,
+    type: 2}
+  isStoryRelated: 0
