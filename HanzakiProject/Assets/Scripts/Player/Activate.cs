@@ -6,6 +6,7 @@ using System.Collections;
 public class Activate : MonoBehaviour
 {
     public bool activated;
+    public bool intro;
 
     //Focus the camera on the object
     public void FocusCamera()
@@ -18,8 +19,12 @@ public class Activate : MonoBehaviour
     //Focus the camera back to the player
     public void DefocusCamera()
     {
-        Camera.main.gameObject.GetComponent<CameraController>().inCutscene = false;
-        activated = false;
+        if(!intro)
+        {
+            Camera.main.gameObject.GetComponent<CameraController>().inCutscene = false;
+            activated = false;
+        }
+        
     }
 }
 

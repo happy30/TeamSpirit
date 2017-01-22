@@ -380,7 +380,7 @@ public class UIManager : MonoBehaviour {
         if(!Camera.main.GetComponent<CameraController>().inCutscene)
         {
             interactTextObject.GetComponent<Animator>().SetBool("FadeIn", true);
-            interactText.text = "Press Z to " + interactObject.interactText;
+            interactText.text = "Press 'Slash' to " + interactObject.interactText;
         }
         else
         {

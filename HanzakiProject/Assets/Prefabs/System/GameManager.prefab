@@ -158,15 +158,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 2.5
   runSpeed: 6
-  health: 8
-  maxHealth: 8
+  health: 4
+  maxHealth: 4
   hookParts: 0
   katanaUnlocked: 0
-  grapplingHookUnlocked: 1
-  shurikenUnlocked: 1
-  smokeBombUnlocked: 1
-  shurikenAmount: 10
-  smokeBombAmount: 10
+  grapplingHookUnlocked: 0
+  shurikenUnlocked: 0
+  smokeBombUnlocked: 0
+  shurikenAmount: 0
+  smokeBombAmount: 0
 --- !u!114 &114739391781963652
 MonoBehaviour:
   m_ObjectHideFlags: 1

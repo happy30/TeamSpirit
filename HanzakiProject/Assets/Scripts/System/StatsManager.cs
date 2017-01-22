@@ -50,16 +50,23 @@ public class StatsManager : MonoBehaviour
 
     public void AddShuriken()
     {
-        shurikenUnlocked = true;
-        shurikenAmount++;
+        if(!shurikenUnlocked)
+        {
+            GameObject.Find("Canvas").GetComponent<UIManager>().UnlockAbility();
+            shurikenUnlocked = true;
+        }
+
+        shurikenAmount += 5;
         GameObject.Find("Canvas").GetComponent<UIManager>().UnlockIcons();
-        
-		
     }
 
     public void AddSmokeBomb()
     {
-        smokeBombUnlocked = true;
+        if(!smokeBombUnlocked)
+        {
+            GameObject.Find("Canvas").GetComponent<UIManager>().UnlockAbility();
+            smokeBombUnlocked = true;
+        }
         smokeBombAmount++;
         GameObject.Find("Canvas").GetComponent<UIManager>().UnlockIcons();
     }

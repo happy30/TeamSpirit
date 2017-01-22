@@ -23,6 +23,7 @@ public class CutsceneController : MonoBehaviour
     public string npcName;
     public string[] CutsceneText;
     public string[] secondCutsceneText;
+    public bool questAchieved;
 
     //technical stuff
     public string[] fullLines;
@@ -101,13 +102,22 @@ public class CutsceneController : MonoBehaviour
         currentText = 0;
         if(_interact.interactType == InteractScript.InteractType.OnTrigger)
         {
-            
             if(cutsceneType == CutsceneType.MainQuest)
             {
                 questManager.NextTask();
                 ui.SetQuestsText();
             }
             Destroy(_interact.gameObject);
+        }
+        else if(_interact.interactType == InteractScript.InteractType.OnInput)
+        {
+            if (cutsceneType == CutsceneType.MainQuest && !questAchieved)
+            {
+                CutsceneText = secondCutsceneText;
+                questAchieved = true;
+                questManager.NextTask();
+                ui.SetQuestsText();
+            }
         }
         _interact.DeActivate();
         ui.chatPanel.SetActive(false);

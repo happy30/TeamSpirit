@@ -318,7 +318,7 @@ public class PlayerController : MonoBehaviour
     void SlipperyTileMovement()
     {
         anim.SetBool("Walking", false);
-        anim.SetBool("Runing", false);
+        anim.SetBool("Running", false);
 
 
         if(Input.GetAxisRaw("Horizontal") > 0 && !hasInput)
@@ -579,7 +579,7 @@ public class PlayerController : MonoBehaviour
         {
             Camera.main.GetComponent<Grayscale>().enabled = false;
             invulnerableEffect = false;
-            playerMat.color = Color.white;
+            playerMat.color = new Color(0.8f, 0.8f, 0.8f);
         }
     }
 
@@ -637,7 +637,7 @@ public class PlayerController : MonoBehaviour
             else if(col.gameObject.GetComponent<InteractScript>().interactType == InteractScript.InteractType.OnInput)
             {
                 ui.ChangeInteractText(col.gameObject.GetComponent<InteractScript>());
-                if(Input.GetKey(InputManager.Slash))
+                if(Input.GetKey(InputManager.Slash) || Input.GetKey(InputManager.JSlash))
                 {
                     col.gameObject.GetComponent<InteractScript>().Activate();
                 }

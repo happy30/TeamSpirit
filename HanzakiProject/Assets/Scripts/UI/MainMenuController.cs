@@ -118,10 +118,12 @@ public class MainMenuController : MonoBehaviour
             {
                 if(Input.GetAxisRaw("Horizontal") < 0 && cursorAt == CursorAt.NewGame)
                 {
+                    sound.PlayOneShot(buttonHover);
                     cursorAt = CursorAt.KappaKart;
                 }
                 else if(Input.GetAxisRaw("Horizontal") > 0 && cursorAt == CursorAt.KappaKart)
                 {
+                    sound.PlayOneShot(buttonHover);
                     cursorAt = CursorAt.NewGame;
                 }
             }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class ViewPortChanger : MonoBehaviour
 {
 
+    public bool changeDistance;
+    public int newDistance;
+
     public float rotationChange;
     public enum Type
     {
@@ -30,6 +33,10 @@ public class ViewPortChanger : MonoBehaviour
             }
             col.GetComponent<PlayerController>().ChangeControlsDependingOnLevelType();
             Camera.main.GetComponent<CameraController>().SetUp();
+            if (changeDistance)
+            {
+                Camera.main.GetComponent<CameraController>().distance = newDistance;
+            }
         }
     }
 }

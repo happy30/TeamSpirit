@@ -33,7 +33,7 @@ public class ShurikenObject : MonoBehaviour
 
     void Start()
     {
-        if(playerController.levelType == PlayerController.LevelType.SS)
+        if(playerController.levelType == PlayerController.LevelType.SS && playerController.rotationOffset == 0)
         {
             if (playerController.playerRotation.y < 100)
             {

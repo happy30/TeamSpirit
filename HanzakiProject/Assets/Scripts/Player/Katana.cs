@@ -83,7 +83,7 @@ public class Katana : MonoBehaviour
                 SlashedObject = hit.collider.gameObject;
                 hit.collider.transform.parent.GetComponent<EnemyMovement>().GetHit(attackPower);
 
-                spawnedhitParticle = (GameObject)Instantiate(hitParticle, slashTrail.transform.position, Quaternion.identity);
+                spawnedhitParticle = (GameObject)Instantiate(hitParticle, hit.collider.transform.position, Quaternion.identity);
                 Destroy(spawnedhitParticle, 1f);
 
                 /*
