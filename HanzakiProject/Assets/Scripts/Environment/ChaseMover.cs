@@ -10,12 +10,12 @@ public class ChaseMover : MonoBehaviour {
     public float moveZ;
 
 	void Update () {
-        transform.Translate(moveX, moveY, moveZ);
+        transform.Translate(moveX*Time.deltaTime, moveY*Time.deltaTime, moveZ*Time.deltaTime);
 	}
 
     void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Player")
+        if (other.transform.tag == "Player")
         {
             other.GetComponent<PlayerController>().Die();
         }
