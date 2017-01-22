@@ -20,6 +20,8 @@ public class KartGameManager : MonoBehaviour {
     public int player2Checkpoints;
     public bool startCountDown;
 
+    public bool raceStart;
+
     KartUIManager _UI;
     private float countDown = 3;
 
@@ -53,13 +55,9 @@ public class KartGameManager : MonoBehaviour {
             startCountDown = false;
             player1.GetComponent<KartController>().raceStarted = true;
             player2.GetComponent<KartController>().raceStarted = true;
+            raceStart = true;
            _UI.countDown.text = " ";
         }
-    }
-
-    public void FinishRace()
-    {
-
     }
 
     public void CheckRanks(){
@@ -106,7 +104,9 @@ public class KartGameManager : MonoBehaviour {
         }
         if(player1Laps == maxLaps || player2Laps == maxLaps)
         {
+            raceStart = false;
             rankPanel.SetActive(true);
+            GetComponent<KartMainMenu>().menuPanel.SetActive(true);
         }
     }
 }

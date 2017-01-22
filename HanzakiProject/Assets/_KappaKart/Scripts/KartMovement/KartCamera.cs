@@ -14,12 +14,8 @@ public class KartCamera : MonoBehaviour
     public float distance;
     public float maxDistance;
 
-    float currentX = 0.0f;
-    float currentY = 0.0f;
     public float height;
 
-    float sensitivityX = 4.0f;
-    float sensitivityY = 1.0f;
     public float followSpeed;
 
     RaycastHit hit;
