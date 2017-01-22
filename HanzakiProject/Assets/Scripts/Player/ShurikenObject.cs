@@ -19,10 +19,16 @@ public class ShurikenObject : MonoBehaviour
 
     public Vector3 shurikenDirection;
 
+    AudioSource sound;
+    public AudioClip shurikenHit;
+
+    public GameObject[] particleObjects;
+
     void Awake()
     {
         player = GameObject.Find("PlayerModel").transform;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        sound = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -63,6 +69,7 @@ public class ShurikenObject : MonoBehaviour
     {
         if(col.gameObject.tag == "Ground" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "Destructible")
         {
+            sound.PlayOneShot(shurikenHit);
             projectileSpeed = 0;
             transform.SetParent(col.gameObject.transform);
             model2.Rotate(0, 0, 0);

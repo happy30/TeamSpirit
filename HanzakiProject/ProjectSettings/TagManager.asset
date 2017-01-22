@@ -18,6 +18,7 @@ TagManager:
   - Boost
   - OffRoad
   - PlayerKart
+  - Ramp
   layers:
   - Default
   - TransparentFX

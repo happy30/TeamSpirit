@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HanzakiProject/Assets/_KappaKart/Models/KappaKartHouse/ENV_KappaKartHouse.FBX.meta
 guid: 9b8d379e2690600458162c4a9710f957
 timeCreated: 1484830720
+=======
+guid: 14adafa6db3763847887617d15fa202c
+timeCreated: 1484835414
+>>>>>>> 45d9b46a782ea6a172dc15e61be99e0b65c01724:HanzakiProject/Assets/_KappaKart/Models/KappaKartHouse/ENV_KappaKartHouse.FBX.meta
 licenseType: Free
 ModelImporter:
   serializedVersion: 19

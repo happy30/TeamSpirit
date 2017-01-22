@@ -108,7 +108,7 @@ public class CameraController : MonoBehaviour
     //Make the camera follow the player. If the player moves the camera offset will change so that it gives a better vision of what's in front of the player.
     public void FollowPlayer()
     {
-        if(playerController.xMovement > 0.01)
+        if(playerController.canMove && Input.GetAxisRaw("Horizontal") > 0.3f)
         {
             if(stance != CameraStance.Right)
             {
@@ -127,7 +127,7 @@ public class CameraController : MonoBehaviour
                 }
             }
         }
-        else if (playerController.xMovement < -0.01)
+        else if (playerController.canMove && Input.GetAxisRaw("Horizontal") < -0.3f)
         {
             if (stance != CameraStance.Left)
             {

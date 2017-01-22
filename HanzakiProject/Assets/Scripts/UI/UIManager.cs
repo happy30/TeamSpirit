@@ -64,6 +64,9 @@ public class UIManager : MonoBehaviour {
     public AudioClip openMenu;
     public AudioClip closeMenu;
     public AudioClip scrollSound;
+    public AudioClip speechSound;
+
+    public AudioSource speechListener;
 
     public GameObject pickUpText;
     public GameObject unlockAbility;
@@ -80,6 +83,9 @@ public class UIManager : MonoBehaviour {
     float storeSFXVolume;
 
     public RedOverlayFadeOut bloodOverlay;
+    public bool isCutsceneScene;
+
+
 
 
 	
@@ -103,9 +109,13 @@ public class UIManager : MonoBehaviour {
 
     void Update()
     {
-        CountConsumeables();
-        SetSkillIcon();
-        CheckPause();
+        if(!isCutsceneScene)
+        {
+            CountConsumeables();
+            SetSkillIcon();
+            CheckPause();
+        }
+        
     }
 
     void CheckPause()
@@ -259,7 +269,15 @@ public class UIManager : MonoBehaviour {
     }
 
 
-	
+	public void Speech()
+    {
+        if(!speechListener.isPlaying)
+        {
+            speechListener.pitch = Random.Range(0.5f, 1.5f);
+            speechListener.PlayOneShot(speechSound);
+        }
+    }
+
     public void SetQuestsText()
     {
         mainQuestTitleText.text = quests.mainQuests[prog.mainQuestProgression].questTitle;

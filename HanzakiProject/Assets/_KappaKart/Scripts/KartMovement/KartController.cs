@@ -16,7 +16,9 @@ public class KartController : MonoBehaviour
 
     public float speed;
     public float normalSpeed;
+    public float rampSpeed;
     public float boostSpeed;
+
 
     public float backSpeed;
     private bool mayTurn;
@@ -54,7 +56,10 @@ public class KartController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        VehicleMove();
+        if (raceStarted)
+        {
+            VehicleMove();
+        }
 
         RaycastHit hit;
         if (!Physics.Raycast(transform.position, -transform.up, out hit, 1.5f))
@@ -94,8 +99,17 @@ public class KartController : MonoBehaviour
         if(Physics.Raycast(transform.position,-transform.up,out hit, rayDis))
         {
             CheckFloor(hit);
+            if(hit.transform.tag == "Ramp")
+            {
+                _rb.AddForce(rampSpeed * transform.forward);
+            }
+           // _rb.useGravity = false;
         }
-        print("test");
+        else
+        {
+           // _rb.useGravity = true;
+        }
+
         // Front Back
         if (aButton)
         {

@@ -63,6 +63,10 @@ public class PlayerController : MonoBehaviour
     public bool invulnerableEffect;
     public AudioSource sound;
     public AudioClip smokeBombSound;
+    public AudioClip stepDirt;
+    public AudioClip stepWood;
+    public AudioClip playerGetHit;
+    public AudioClip playerJump;
 
     public float jumpCD;
 
@@ -88,6 +92,14 @@ public class PlayerController : MonoBehaviour
     public float lastDirection;
     public bool isMoving;
     bool nogeen;
+
+    public Transform leftFoot;
+    public Transform rightFoot;
+    public GameObject footStepParticle;
+    GameObject spawnedFootStepParticle;
+
+    public GameObject jumpLandParticle;
+    GameObject spawnedjumpLandParticle;
 
 
     //Gather components
@@ -516,6 +528,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Jump", true);
         anim.SetBool("Walking", false);
         jumpCD = 0.85f;
+        sound.PlayOneShot(playerJump);
     }
 
     public bool CheckIfJumping()
@@ -526,11 +539,14 @@ public class PlayerController : MonoBehaviour
         }
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, 1.1f))
-
         {
             if(hit.collider.tag == "Ground")
             {
-                inAir = false;
+                if(inAir)
+                {
+                    inAir = false;
+                }
+               
             }
         }
         return false;
@@ -567,10 +583,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //get hit by enemies
     public void GetHit(int damage, Transform hitter)
     {
         if(!invulnerable)
         {
+            sound.PlayOneShot(playerGetHit);
             stats.health -= damage;
             GameObject.Find("Canvas").GetComponent<HeartScript>().DrawHearts();
             if(hitter.position.x > transform.position.x)
@@ -645,6 +663,41 @@ public class PlayerController : MonoBehaviour
                 
     }
 
+
+    public void Step(bool left)
+    {
+        sound.pitch = Random.Range(0.5f, 1.5f);
+
+        if(IsTouching(2) != null)
+        {
+            if(IsTouching(2).name == "Terrain")
+            {
+                sound.PlayOneShot(stepDirt, 0.3f);
+                if (left)
+                {
+                    spawnedFootStepParticle = (GameObject)Instantiate(footStepParticle, leftFoot.position, Quaternion.identity);
+                    Destroy(spawnedFootStepParticle, 1f);
+                }
+                else
+                {
+                    spawnedFootStepParticle = (GameObject)Instantiate(footStepParticle, rightFoot.position, Quaternion.identity);
+                    Destroy(spawnedFootStepParticle, 1f);
+                }
+            }
+            else
+            {
+                sound.PlayOneShot(stepWood);
+            }
+        }
+        sound.pitch = 1;
+    }
+
+    public void Land()
+    {
+        Step(true);
+        spawnedjumpLandParticle = (GameObject)Instantiate(jumpLandParticle, rightFoot.position, Quaternion.identity);
+        Destroy(spawnedjumpLandParticle, 1f);
+    }
 
     public void StopMovement (float time)
     {

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿//Made by Alieke
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KartMainMenu : MonoBehaviour
 {
@@ -13,24 +15,46 @@ public class KartMainMenu : MonoBehaviour
     public ArrowPos arrowPos;
     public float yPos;
     public RectTransform arrow;
-
     public float arrowSpeed;
 
     public RectTransform newGameButton;
     public RectTransform backButton;
 
-    void Start()
-    {
-        arrowPos = ArrowPos.NewGame;
+    public GameObject player1Cam;
+    public GameObject player2Cam;
+    public Transform menuCam;
 
+    public GameObject menuPanel;
+    public GameObject hudPanel;
+    public GameObject rankPanel;
+
+    private bool gameStarted;
+    bool aButton;
+
+    public float fadeValue;
+    public GameObject blackScreen;
+    bool fadeScreen;
+
+    LoadController _load;
+    KartGameManager _GameManager;
+
+    Animator _anim;
+
+    void Awake()
+    {
+        _anim = blackScreen.GetComponent<Animator>();
+        arrowPos = ArrowPos.NewGame;
+        _load = GetComponent<LoadController>();
+        _GameManager = GetComponent<KartGameManager>();
+ 
     }
     void Update()
     {
-        if(Input.GetAxisRaw("Vertical") < 0)
+        if (Input.GetAxisRaw("Vertical") < 0)
         {
             arrowPos = ArrowPos.Back;
         }
-        else if(Input.GetAxisRaw("Vertical") > 0)
+        else if (Input.GetAxisRaw("Vertical") > 0)
         {
             arrowPos = ArrowPos.NewGame;
         }
@@ -46,5 +70,58 @@ public class KartMainMenu : MonoBehaviour
         }
 
         arrow.anchoredPosition = Vector2.Lerp(arrow.anchoredPosition, new Vector2(arrow.anchoredPosition.x, yPos), arrowSpeed * Time.deltaTime);
+
+        if (!_GameManager.raceStart)
+        {
+            if (arrowPos == ArrowPos.NewGame)
+            {
+                aButton = Input.GetButton("AButton1");
+                if (aButton)
+                {
+                    Invoke("FadeScreen", 0.5f);
+                    Invoke("StartGame", 1f);
+                    Invoke("FadeScreenOff", 2f);
+                    Invoke("StartCounting", 4f);
+                }
+            }
+            if (arrowPos == ArrowPos.Back)
+            {
+                aButton = Input.GetButton("AButton1");
+                if (aButton)
+                {
+                    Invoke("FadeScreen", 1f);
+                    Invoke("QuitGame", 2.5f);
+                }
+            }
+        }
+    }
+
+    public void FadeScreen()
+    {
+        menuPanel.SetActive(false);
+        _anim.SetBool("Fade", true);
+    }
+    public void FadeScreenOff()
+    {
+        _anim.SetBool("Fade", false);
+    }
+
+    public void StartCounting()
+    {
+        _GameManager.startCountDown = true;
+    }
+
+    public void StartGame()
+    {         
+        rankPanel.SetActive(false);
+        player1Cam.SetActive(true);
+        player2Cam.SetActive(true);
+        menuCam.gameObject.SetActive(false);
+        hudPanel.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        _load.LoadScene("MainMenu");
     }
 }
