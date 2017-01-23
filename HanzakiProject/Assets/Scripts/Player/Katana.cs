@@ -97,6 +97,26 @@ public class Katana : MonoBehaviour
                 }
                 */
             }
+            else if (hit.collider.tag == "Boss")
+            {
+                sound.PlayOneShot(hitEnemy, 0.2f);
+                SlashedObject = hit.collider.gameObject;
+                hit.collider.GetComponent<EnemyBoss>().GetHit(attackPower);
+
+                spawnedhitParticle = (GameObject)Instantiate(hitParticle, hit.collider.transform.position, Quaternion.identity);
+                Destroy(spawnedhitParticle, 1f);
+
+                /*
+                if (SlashedObject.GetComponent<EnemyMovement>() != null)
+                {
+                    SlashedObject.GetComponent<EnemyMovement>().GetHit(attackPower * attackMultiplier);
+                }
+                if (SlashedObject.GetComponent<DestructibleScript>() != null)
+                {
+                    SlashedObject.GetComponent<DestructibleScript>().Destroy();
+                }
+                */
+            }
 
             else if (hit.collider.tag == "Destructible" && swordType == SwordType.Katana)
             {

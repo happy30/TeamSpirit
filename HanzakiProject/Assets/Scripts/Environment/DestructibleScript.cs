@@ -9,6 +9,8 @@ public class DestructibleScript : MonoBehaviour
     GameObject spawnedParticleObject;
     GameObject self;
 
+    public bool endBoulder;
+
     public bool isStoryRelated;
 
     void Start()
@@ -18,7 +20,22 @@ public class DestructibleScript : MonoBehaviour
 
     public void DestroyObject ()
     {
-        if(isStoryRelated)
+        if(!endBoulder)
+        {
+            if (isStoryRelated)
+            {
+                GameObject.Find("GameManager").GetComponent<QuestManager>().NextTask();
+                GameObject.Find("Canvas").GetComponent<UIManager>().SetQuestsText();
+            }
+            Destroy(spawnedParticleObject = (GameObject)Instantiate(particleObject, transform.position, Quaternion.identity), 3);
+            Destroy(gameObject);
+        }
+        
+    }
+
+    public void DestroyBoulder()
+    {
+        if (isStoryRelated)
         {
             GameObject.Find("GameManager").GetComponent<QuestManager>().NextTask();
             GameObject.Find("Canvas").GetComponent<UIManager>().SetQuestsText();

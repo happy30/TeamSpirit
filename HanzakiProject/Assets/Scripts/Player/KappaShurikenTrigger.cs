@@ -18,6 +18,8 @@ public class KappaShurikenTrigger : MonoBehaviour
         {
             Debug.Log("Hit by shuriken");
             enemyMov.GetHitByShuriken(col.GetComponent<ShurikenObject>().attackPower);
+            col.gameObject.GetComponent<ShurikenObject>().ShurikenOnKappa();
+            col.transform.parent = transform;
         }
     }
 }

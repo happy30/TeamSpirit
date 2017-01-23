@@ -102,6 +102,15 @@ public class KartController : MonoBehaviour
         if (aButton)
         { 
             _rb.velocity += transform.forward * speed * Time.deltaTime;
+            if(!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            
+        }
+        else
+        {
+            GetComponent<AudioSource>().Pause();
         }
         if (bButton)
         {

@@ -14,84 +14,169 @@ public class EnemyBoss : MonoBehaviour {
     public float attackDamage;
     public float attackRange;
     private float mayAttack;
+    float timer;
+    public bool startSmashing;
 
-    private float rage;
+    public bool start;
+
+    public float rage;
 
     public Transform positionToBoulder;
     private float animTimer;
+
+    public DestructibleScript boulder;
+    public float x;
+    public BossCollider bossCol;
+    public GameObject particles;
+
+    AudioSource sound;
+    public AudioClip deathSound;
+    public AudioClip hitSound;
+    public AudioClip stepSound;
+
+    float runSpeed;
+    bool death;
+
+    bool hasPlayed;
+
 
 
     void Awake () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
+        runSpeed = 10;
+        sound = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
-        if (attackMode)
+
+        if(startSmashing)
         {
-            Attacking();
+            SmashBoulder();
+        }
+        else
+        {
+            if (rage <= 0 && player.position.x > transform.position.x && player.GetComponent<PlayerController>().invulnerable == true)
+            {
+                if(!startSmashing)
+                {
+                    sound.PlayOneShot(deathSound);
+                    GetComponent<CapsuleCollider>().enabled = false;
+                    anim.SetBool("Rage", true);
+                    startSmashing = true;
+                }
+                
+            }
+            else if(start)
+            {
+                if (attackMode)
+                {
+                    Attacking();
+                }
+                else
+                {
+                    Walking();
+                }
+            }
+        }
+
+        if(transform.position.x > x && !death)
+        {
+            boulder.DestroyBoulder();
+            runSpeed = 0;
+            anim.SetBool("Die", true);
+            anim.SetBool("Walking", false);
+            anim.SetBool("Running", false);
+            death = true;
+        }
+        
+        if(death)
+        {
+            if(!hasPlayed)
+            {
+                sound.PlayOneShot(deathSound);
+                hasPlayed = true;
+                Camera.main.gameObject.GetComponent<AudioSource>().Stop();
+            }
+            particles.SetActive(false);
+            if(transform.eulerAngles.x < 90)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x + 40 * Time.deltaTime, transform.eulerAngles.y, transform.eulerAngles.z);
+                Camera.main.GetComponent<CameraController>().distance = 10;
+            }
+            
         }
 	}
     
     void Attacking()
     {
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.forward, out hit, rayDis))
+        if (agent.enabled)
         {
-            Debug.Log("fuck");
-            if(hit.collider.tag == "Player")
+            agent.SetDestination(transform.position);
+        }
+        anim.SetBool("Attacking", true);
+        anim.SetBool("Walking", false);
+    }
+    void Walking()
+    {
+        anim.SetBool("Attacking", false);
+        anim.SetBool("Walking", true);
+        if( anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        {
+            if (agent.enabled)
             {
-                agent.SetDestination(transform.position);
-                anim.SetBool("Attacking", true);
-                anim.SetBool("Walking", false);
-            }
-            else
-            {
-                anim.SetBool("Walking", true);
+                agent.SetDestination(player.position);
             }
         }
-        else
-        {
-            anim.SetBool("Walking", true);
-        }
-
     }
 
-    void GetHit(int damageGet)
+    public void GetHit(int damageGet)
     {
+        sound.PlayOneShot(hitSound);
         rage -= damageGet;
         if(rage <= 0)
         {
-            //Camera.main.GetComponent<BGMPlayer>().changeBGM(BGMPlayer.CurrentlyPlaying.BossFightRage);
-            if(player.position.x > transform.position.x || player.GetComponent<PlayerController>().invulnerable == true)
-            {
-                SmashBoulder();
-            }
+            particles.SetActive(true);
+            
         }
     }
 
     void SmashBoulder()
     {
-        agent.SetDestination(positionToBoulder.position);
-        attackMode = false;
-        float distance = Vector3.Distance(transform.position, positionToBoulder.position);
-        if (distance <= 1) { 
-            anim.SetBool("Attacking", true);
-            if (animTimer > anim.runtimeAnimatorController.animationClips.Length)
+        agent.enabled = false;
+        
+        timer += Time.deltaTime;
+       {
+            if(timer > 1.5f)
             {
-                anim.SetBool("Death", true);
+                transform.position = new Vector3(transform.position.x + runSpeed * Time.deltaTime, transform.position.y, transform.position.z);
             }
-            else
-            {
-                animTimer -= Time.deltaTime;
-            }
+        }
+        
+    }
+
+    public void AttackAnimation()
+    {
+        if(bossCol.hasPlayer)
+        {
+            player.GetComponent<PlayerController>().GetHit(2, transform);
         }
     }
 
+
     public void ReturnDestination()
     {
-        agent.SetDestination(player.position);
+        if(agent.enabled)
+        {
+            agent.SetDestination(player.position);
+        }
+        
+    }
+
+    public void ShakeCamera()
+    {
+        Camera.main.GetComponent<CameraController>().ShakeEffect();
+        sound.PlayOneShot(stepSound, 0.5f);
     }
     
 }

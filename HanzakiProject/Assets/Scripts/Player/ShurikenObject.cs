@@ -65,6 +65,15 @@ public class ShurikenObject : MonoBehaviour
         
     }
 
+    public void ShurikenOnKappa()
+    {
+        sound.PlayOneShot(shurikenHit);
+        projectileSpeed = 0;
+        model2.Rotate(0, 0, 0);
+        model.Rotate(0, 0, 0);
+        hit = true;
+    }
+    
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Ground" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "Destructible")

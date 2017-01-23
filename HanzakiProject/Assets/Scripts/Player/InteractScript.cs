@@ -86,7 +86,8 @@ public class InteractScript : MonoBehaviour
         }
         if(boss)
         {
-            bossController.attackMode = true;
+            Camera.main.gameObject.GetComponent<AudioSource>().Play();
+            bossController.start = true;
         }
     }
 }

@@ -78,7 +78,7 @@ public class KartMainMenu : MonoBehaviour
         {
             if (arrowPos == ArrowPos.NewGame) { 
                 bButton = Input.GetButton("BButton1");
-                if (bButton)
+                if (bButton || Input.GetKeyDown(InputManager.Slash))
                 {
                     Invoke("FadeScreen", 0.5f);
                     Invoke("StartGame", 1f);
@@ -89,7 +89,7 @@ public class KartMainMenu : MonoBehaviour
             if (arrowPos == ArrowPos.Back)
             {
                 bButton = Input.GetButton("AButton1");
-                if (bButton)
+                if (bButton || Input.GetKeyDown(InputManager.Slash))
                 {
                     Invoke("FadeScreen", 1f);
                     Invoke("QuitGame", 2.5f);

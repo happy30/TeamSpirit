@@ -95,7 +95,7 @@ public class CameraController : MonoBehaviour
 
     public void ShakeEffect()
     {
-        shakePos = new Vector3(-0.6f, -0.3f, 0);
+        shakePos = new Vector3(-1f, -0.6f, 0);
         Invoke("EndOfShake", 0.15f);
     }
 
@@ -201,7 +201,7 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.Slerp(transform.position, hookObject.GetComponent<GrapplingHookScript>().cameraPos.position, followTime * Time.deltaTime);
+                transform.position = Vector3.Slerp(transform.position, hookObject.GetComponent<GrapplingHookScript>().cameraPos.position + shakePos, followTime * Time.deltaTime);
                 //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, hookObject.GetComponent<GrapplingHookScript>().cameraPos.eulerAngles, followTime * Time.deltaTime);
                 transform.eulerAngles = new Vector3(
                     Mathf.LerpAngle(transform.eulerAngles.x, hookObject.GetComponent<GrapplingHookScript>().cameraPos.eulerAngles.x, followTime * Time.deltaTime), 

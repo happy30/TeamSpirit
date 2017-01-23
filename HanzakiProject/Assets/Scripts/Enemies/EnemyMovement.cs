@@ -50,6 +50,9 @@ public class EnemyMovement : MonoBehaviour
     public GameObject deathParticle;
     GameObject spawnedDeathparticle;
 
+    public AudioClip deathSound;
+    public bool soundPlayed;
+
     public enum EnemyType
     {
         BabyKappa,
@@ -136,6 +139,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Die()
     {
+        if(!soundPlayed)
+        {
+            soundPlayed = true;
+            GetComponent<AudioSource>().PlayOneShot(deathSound);
+        }
         colliders = GetComponentsInChildren<Collider>();
         foreach (Collider col in colliders)
         {

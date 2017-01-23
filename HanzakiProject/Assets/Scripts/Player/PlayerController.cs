@@ -588,6 +588,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!invulnerable)
         {
+            Camera.main.GetComponent<CameraController>().ShakeEffect();
             sound.PlayOneShot(playerGetHit);
             stats.health -= damage;
             GameObject.Find("Canvas").GetComponent<HeartScript>().DrawHearts();

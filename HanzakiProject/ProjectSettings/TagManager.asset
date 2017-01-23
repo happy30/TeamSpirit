@@ -19,6 +19,7 @@ TagManager:
   - OffRoad
   - PlayerKart
   - Ramp
+  - Boss
   layers:
   - Default
   - TransparentFX
