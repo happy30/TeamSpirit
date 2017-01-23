@@ -28,8 +28,11 @@ public class KartMainMenu : MonoBehaviour
     public GameObject hudPanel;
     public GameObject rankPanel;
 
+    public GameObject player1;
+    public GameObject player2;
+
     private bool gameStarted;
-    bool aButton;
+    bool bButton;
 
     public float fadeValue;
     public GameObject blackScreen;
@@ -73,10 +76,9 @@ public class KartMainMenu : MonoBehaviour
 
         if (!_GameManager.raceStart)
         {
-            if (arrowPos == ArrowPos.NewGame)
-            {
-                aButton = Input.GetButton("AButton1");
-                if (aButton)
+            if (arrowPos == ArrowPos.NewGame) { 
+                bButton = Input.GetButton("BButton1");
+                if (bButton)
                 {
                     Invoke("FadeScreen", 0.5f);
                     Invoke("StartGame", 1f);
@@ -86,8 +88,8 @@ public class KartMainMenu : MonoBehaviour
             }
             if (arrowPos == ArrowPos.Back)
             {
-                aButton = Input.GetButton("AButton1");
-                if (aButton)
+                bButton = Input.GetButton("AButton1");
+                if (bButton)
                 {
                     Invoke("FadeScreen", 1f);
                     Invoke("QuitGame", 2.5f);
@@ -112,12 +114,15 @@ public class KartMainMenu : MonoBehaviour
     }
 
     public void StartGame()
-    {         
+    {
+        player1.GetComponent<KartController>().ResetKart();
+        player2.GetComponent<KartController>().ResetKart();
         rankPanel.SetActive(false);
         player1Cam.SetActive(true);
         player2Cam.SetActive(true);
         menuCam.gameObject.SetActive(false);
         hudPanel.SetActive(true);
+
     }
 
     public void QuitGame()

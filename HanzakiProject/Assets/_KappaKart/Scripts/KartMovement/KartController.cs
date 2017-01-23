@@ -5,20 +5,15 @@ using UnityEngine;
 
 public class KartController : MonoBehaviour
 {
-    public enum ItemType { None, Hook, Shuriken, Katana, Box, Bomb, SecondNone }
-    public ItemType heldItem;
-
     public bool raceStarted;
     public int nextCheckPoint;
     public int playerPos;
     public int currentLap;
-   // public GameObject otherPlayer;
 
     public float speed;
     public float normalSpeed;
     public float rampSpeed;
     public float boostSpeed;
-
 
     public float backSpeed;
     private bool mayTurn;
@@ -30,7 +25,6 @@ public class KartController : MonoBehaviour
     public float hoverForce;
     public float hoverDamp;
 
-
     public string verticalSpeed;
     public string horizontalRot;
 
@@ -39,9 +33,9 @@ public class KartController : MonoBehaviour
 
     private RaycastHit hit;
     public float rayDis;
-    public Texture[] materialArray;
 
     private Rigidbody _rb;
+    public Transform startPos;
 
     void Start()
     {
@@ -98,21 +92,15 @@ public class KartController : MonoBehaviour
 
         if(Physics.Raycast(transform.position,-transform.up,out hit, rayDis))
         {
-            CheckFloor(hit);
             if(hit.transform.tag == "Ramp")
             {
                 _rb.AddForce(rampSpeed * transform.forward);
             }
-           // _rb.useGravity = false;
-        }
-        else
-        {
-           // _rb.useGravity = true;
         }
 
         // Front Back
         if (aButton)
-        {
+        { 
             _rb.velocity += transform.forward * speed * Time.deltaTime;
         }
         if (bButton)
@@ -136,64 +124,12 @@ public class KartController : MonoBehaviour
                 transform.eulerAngles = new Vector3(a.x, rotation, a.z);
             }
     }
-
-    void CheckFloor(RaycastHit hit)
+    public void ResetKart()
     {
-       /* if ( )
-        {            speed = normalSpeed;
-            _rb.drag = 1;
-        }
-        else{
-            _rb.drag = 5;
-        }*/
-
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-        switch (col.tag)
-        {
-            case "ItemBox":
-                if (heldItem == ItemType.None)
-                {
-                    if (playerPos < 2) // if Number 1
-                    {
-                        heldItem = (ItemType)Random.Range(1, 5);
-                    }
-                    else //  if Number 2
-                    {
-                        heldItem = (ItemType)Random.Range(2, 6);
-                    }
-
-                }
-                break;
-            case "Boost":
-                speed = speed + boostSpeed;
-                break;
-            case "OffRoad":
-                _rb.drag = 1f;
-                break;
-        }
-    }
-    void OnTriggerExit(Collider col)
-    {
-        switch (col.tag)
-        {
-            case "ItemBox":
-                GetItem();
-                break;
-            case "Boost":
-                speed = speed - boostSpeed;
-                break;
-            case "OffRoad":
-                _rb.drag = 0f;
-                break;
-        }
-    }
-
-    void GetItem()
-    {
-
+        transform.position = startPos.position;
+        transform.rotation = startPos.rotation;
+        nextCheckPoint = 0;
+        currentLap = 0;
     }
 }
 

@@ -47,6 +47,7 @@ public class KartGameManager : MonoBehaviour {
 
     public void StartRace()
     {
+
         countDown -=  Time.deltaTime;
         int count = (int)countDown; 
         _UI.countDown.text = count.ToString();
@@ -56,7 +57,8 @@ public class KartGameManager : MonoBehaviour {
             player1.GetComponent<KartController>().raceStarted = true;
             player2.GetComponent<KartController>().raceStarted = true;
             raceStart = true;
-           _UI.countDown.text = " ";
+            countDown = 3;
+            _UI.countDown.text = " ";
         }
     }
 

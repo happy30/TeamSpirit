@@ -611,7 +611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089e66183424d3042a47655dbfc1394b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heldItem: 0
   raceStarted: 0
   nextCheckPoint: 0
   playerPos: 1
@@ -631,4 +630,4 @@ MonoBehaviour:
   gasButton: AButton1
   reverseButton: BButton1
   rayDis: 1
-  materialArray: []
+  startPos: {fileID: 0}
