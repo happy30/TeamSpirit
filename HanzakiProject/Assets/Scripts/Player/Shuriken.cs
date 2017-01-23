@@ -33,7 +33,7 @@ public class Shuriken : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(!ui.isPaused)
+        if(!ui.isPaused && player.canMove)
         {
             if (Input.GetKey(InputManager.Shuriken) && stats.shurikenUnlocked && stats.shurikenAmount > 0 && !reloading || Input.GetKey(InputManager.JShuriken) && stats.shurikenUnlocked && stats.shurikenAmount > 0 && !reloading)
             {

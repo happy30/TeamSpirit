@@ -5,7 +5,7 @@ using System.Collections;
 public class EnemyBoss : MonoBehaviour {
     private RaycastHit hit;
     public float rayDis;
-    private bool attackMode;
+    public bool attackMode;
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator anim;
     public Transform player;
@@ -20,19 +20,13 @@ public class EnemyBoss : MonoBehaviour {
     public Transform positionToBoulder;
     private float animTimer;
 
+
     void Awake () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
 	}
 	
 	void Update () {
-	    if(Physics.Raycast(transform.position,transform.right,out hit, rayDis))
-        {
-            if(hit.transform.tag == "Player")
-            {
-                attackMode = true;
-            }
-        }
         if (attackMode)
         {
             Attacking();
@@ -41,25 +35,27 @@ public class EnemyBoss : MonoBehaviour {
     
     void Attacking()
     {
-        agent.SetDestination(player.position);
-        float distance = Vector3.Distance(transform.position, player.position);
-        if (distance <= attackRange)
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.forward, out hit, rayDis))
         {
-            if(attackRate <= 0)
+            Debug.Log("fuck");
+            if(hit.collider.tag == "Player")
             {
+                agent.SetDestination(transform.position);
                 anim.SetBool("Attacking", true);
+                anim.SetBool("Walking", false);
             }
             else
             {
-                if(mayAttack <= anim.runtimeAnimatorController.animationClips.Length)
-                {
-                    anim.SetBool("Attacking", false);
-                }
-                attackRate -= Time.deltaTime;
-                mayAttack -= Time.deltaTime;
-
+                anim.SetBool("Walking", true);
             }
         }
+        else
+        {
+            anim.SetBool("Walking", true);
+        }
+
     }
 
     void GetHit(int damageGet)
@@ -68,7 +64,7 @@ public class EnemyBoss : MonoBehaviour {
         if(rage <= 0)
         {
             //Camera.main.GetComponent<BGMPlayer>().changeBGM(BGMPlayer.CurrentlyPlaying.BossFightRage);
-            //if(player.position.x > transform.position.x || player.GetComponent<PlayerController>().invulnerable == true)
+            if(player.position.x > transform.position.x || player.GetComponent<PlayerController>().invulnerable == true)
             {
                 SmashBoulder();
             }
@@ -91,6 +87,11 @@ public class EnemyBoss : MonoBehaviour {
                 animTimer -= Time.deltaTime;
             }
         }
+    }
+
+    public void ReturnDestination()
+    {
+        agent.SetDestination(player.position);
     }
     
 }

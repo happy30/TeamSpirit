@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 224694254483641706}
   - component: {fileID: 222697236257415102}
   - component: {fileID: 114412849748978552}
+  - component: {fileID: 114583082317557766}
   m_Layer: 5
   m_Name: BlackOverlay
   m_TagString: Untagged
@@ -3114,7 +3115,7 @@ MonoBehaviour:
   openMenu: {fileID: 8300000, guid: f78d3d180ab4e0542800e508c69f871c, type: 3}
   closeMenu: {fileID: 8300000, guid: 7b65f06a642d0f8488f53177ea62c730, type: 3}
   scrollSound: {fileID: 0}
-  speechSound: {fileID: 0}
+  speechSound: {fileID: 8300000, guid: d58127e825bacbb47afe5558a88b0383, type: 3}
   speechListener: {fileID: 0}
   pickUpText: {fileID: 1485673458744654}
   unlockAbility: {fileID: 1720963387805924}
@@ -3430,6 +3431,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114583082317557766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073728995732808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aabad3d9f0d60f42845cf0da8b5ead9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  auto: 1
 --- !u!114 &114601871524395722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6541,7 +6554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 126}
+  m_AnchoredPosition: {x: 145.1, y: 126}
   m_SizeDelta: {x: 940, y: 238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224909067753286374

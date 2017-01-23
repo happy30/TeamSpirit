@@ -156,9 +156,9 @@ public class UIManager : MonoBehaviour {
         //Katana
         if(activeIcons[0].fillAmount < 1f)
         { 
-            activeIcons[0].fillAmount += 1f / 1.5f * Time.deltaTime;
+            activeIcons[0].fillAmount += 1f / 1f * Time.deltaTime;
 
-            if(katanaCD < 1.5f)
+            if(katanaCD < 1f)
             {
                 katanaCD += Time.deltaTime;
             }

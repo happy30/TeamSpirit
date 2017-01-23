@@ -44,7 +44,7 @@ public class Katana : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(new Vector3(playerModel.position.x, playerModel.position.y +0.5f, playerModel.position.z), playerModel.forward);
+        //Debug.DrawRay(new Vector3(playerModel.position.x, playerModel.position.y +0.5f, playerModel.position.z), playerModel.forward);
         if(!ui.isPaused)
         {
             if (Input.GetKeyDown(InputManager.Slash) && !Camera.main.GetComponent<CameraController>().inCutscene && coolDown <= 0 || Input.GetKeyDown(InputManager.JSlash) && !Camera.main.GetComponent<CameraController>().inCutscene && coolDown <= 0)
@@ -53,7 +53,7 @@ public class Katana : MonoBehaviour
                 playerController.anim.SetBool("Attack", true);
                 playerController.StopMovement(1f);
                 ui.UseSkill(0);
-                coolDown = 1.5f;
+                coolDown = 1f;
             }
 
             if (coolDown > 0)

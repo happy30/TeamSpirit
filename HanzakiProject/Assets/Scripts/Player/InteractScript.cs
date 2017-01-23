@@ -22,10 +22,18 @@ public class InteractScript : MonoBehaviour
     public bool startCoolDown;
     public string interactText;
 
+    public bool stringOfCutscenes;
+    public GameObject nextInString;
+    public PlayerController player;
+
+    public bool boss;
+    public EnemyBoss bossController;
+
     void Awake()
     {
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _cutsceneController = GetComponent<CutsceneController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Update()
@@ -38,9 +46,11 @@ public class InteractScript : MonoBehaviour
     {
         if (startCoolDown)
         {
+            player.canMove = false;
             coolDown -= Time.deltaTime;
             if (coolDown < 0)
             {
+                player.canMove = true;
                 startCoolDown = false;
                 coolDown = 0;
             }
@@ -63,8 +73,20 @@ public class InteractScript : MonoBehaviour
     public void DeActivate()
     {
         linkedObject.GetComponent<Activate>().DefocusCamera();
-        ui.ExitCutscene();
+        
         coolDown = 1;
         startCoolDown = true;
+        if(stringOfCutscenes)
+        {
+            nextInString.SetActive(true);
+        }
+        else
+        {
+            ui.ExitCutscene();
+        }
+        if(boss)
+        {
+            bossController.attackMode = true;
+        }
     }
 }

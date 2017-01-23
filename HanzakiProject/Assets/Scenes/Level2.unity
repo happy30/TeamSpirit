@@ -11699,11 +11699,6 @@ Prefab:
       propertyPath: speechListener
       value: 
       objectReference: {fileID: 1259199409}
-    - target: {fileID: 114462296024214692, guid: 126d6358a8611904bbd63141905b20a5,
-        type: 2}
-      propertyPath: speechSound
-      value: 
-      objectReference: {fileID: 8300000, guid: d58127e825bacbb47afe5558a88b0383, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 126d6358a8611904bbd63141905b20a5, type: 2}
   m_IsPrefabParent: 0
@@ -12614,7 +12609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &452676157
 Transform:
   m_ObjectHideFlags: 0
@@ -17337,23 +17332,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4682617253667002, guid: 7ed9de3a85b0dce4fb8a4c8857f27d5b,
     type: 2}
   m_PrefabInternal: {fileID: 618900458}
---- !u!1 &619426788 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1073728995732808, guid: 126d6358a8611904bbd63141905b20a5,
-    type: 2}
-  m_PrefabInternal: {fileID: 429349312}
---- !u!114 &619426792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 619426788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aabad3d9f0d60f42845cf0da8b5ead9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  auto: 1
 --- !u!4 &620850794 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012929407896, guid: 3ba4ae7ff392aac41a357ca8db96ebef,

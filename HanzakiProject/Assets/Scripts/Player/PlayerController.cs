@@ -475,7 +475,7 @@ public class PlayerController : MonoBehaviour
     //Make the player stop moving if it's humping a wall
     void CheckForWall()
     {
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), -transform.right);
+        //Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), -transform.right);
 
         RaycastHit hit;
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + modelHeight, transform.position.z), -transform.right, out hit, modelWidth) || Physics.Raycast(new Vector3(transform.position.x, transform.position.y + (modelHeight * 1.7f), transform.position.z), -transform.right, out hit, modelWidth))
